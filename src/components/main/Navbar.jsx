@@ -15,11 +15,6 @@ const Navbar = () => {
                         Galleria
                     </NavLink>
                 </li>
-                <li>
-                    <NavLink to={'/illustrations'}>
-                        Illustraciones
-                    </NavLink>
-                </li>
             </ul>
         </nav>
      );
