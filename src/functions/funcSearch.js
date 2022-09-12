@@ -28,25 +28,19 @@ const advancedSearch = (species, evt) =>{
                     species.forEach(specie => {
                         switch (node.id) {
                             case 'fs-clasification':
-                                //
-
+                                if(specie.kingdom === childNode.name) arrSpecies.push(specie)
                                 break;
-                            case 'fs-group':
-                                //
-
+                            case 'fs-class':
+                                if(specie.className === childNode.name) arrSpecies.push(specie)
                                 break;
                             case 'fs-color':
-                                //
-
+                                if(specie.color === childNode.name) arrSpecies.push(specie)
                                 break;
                             case 'fs-habitat':
-                                if(specie.habitat === childNode.name){
-                                    arrSpecies.push(specie);
-                                }
+                                if(specie.habitat === childNode.name) arrSpecies.push(specie)
                                 break;
                             case 'fs-state':
-                                //
-                                
+                                if(specie.state === childNode.name) arrSpecies.push(specie)
                                 break;
                             default:
                                 break;

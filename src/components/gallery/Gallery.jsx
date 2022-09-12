@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import useGetSpecies from '../../hooks/useGetSpecies'
+import ItemGallery from './ItemGallery'
 import Search from './Search';
 
 const Gallery = () => {
@@ -33,19 +34,15 @@ const Gallery = () => {
 
             {!searchState?
                 species.map((specie, index) => {
-                    return <article key={'species-main' + index}>
-                        <h2>{specie.commonName}</h2>
-                        {specie.sound !== ''&&
-                        <NavLink to={`/sound/${specie.id}`}>Sonido</NavLink>}
-                    </article>
+                    return <ItemGallery key={'specie-main' + index}
+                        specie={specie}
+                    />
                 })
                 :
                 filterSpecies.map((specie, index) => {
-                    return <article key={'species-main' + index}>
-                        <h2>{specie.commonName}</h2>
-                        {specie.sound !== ''&&
-                        <NavLink to={`/sound/${specie.id}`}>Sonido</NavLink>}
-                    </article>
+                    return <ItemGallery key={'specie-main' + index}
+                        specie={specie}
+                    />
                 })
             }
 

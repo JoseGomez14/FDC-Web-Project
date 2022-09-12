@@ -50,28 +50,28 @@ const Search = ({ setSearchState, setFilterSpecies, species }) => {
                         <label htmlFor="class-flora">Flora</label>
                         <input type="checkbox" name="flora" id="class-flora" />
                     </fieldset>
-                    <fieldset id='fs-group'>
-                        <legend>Grupo</legend>
-                        <label htmlFor="group-aves">Aves</label>
-                        <input type="checkbox" name="aves" id="group-aves" />
+                    <fieldset id='fs-class'>
+                        <legend>Clase</legend>
+                        <label htmlFor="class-aves">Aves</label>
+                        <input type="checkbox" name="aves" id="class-aves" />
 
-                        <label htmlFor="group-mamiferos">Mamíferos</label>
-                        <input type="checkbox" name="mamiferos" id="group-mamiferos" />
+                        <label htmlFor="class-mamiferos">Mamíferos</label>
+                        <input type="checkbox" name="mamiferos" id="class-mamiferos" />
 
-                        <label htmlFor="group-reptiles">Reptiles</label>
-                        <input type="checkbox" name="reptiles" id="group-reptiles" />
+                        <label htmlFor="class-reptiles">Reptiles</label>
+                        <input type="checkbox" name="reptiles" id="class-reptiles" />
 
-                        <label htmlFor="group-anfibios">Anfibios</label>
-                        <input type="checkbox" name="anfibios" id="group-anfibios" />
+                        <label htmlFor="class-anfibios">Anfibios</label>
+                        <input type="checkbox" name="anfibios" id="class-anfibios" />
 
-                        <label htmlFor="group-insectos">Insectos</label>
-                        <input type="checkbox" name="insectos" id="group-insectos" />
+                        <label htmlFor="class-insectos">Insectos</label>
+                        <input type="checkbox" name="insectos" id="class-insectos" />
 
-                        <label htmlFor="group-plantas">Plantas</label>
-                        <input type="checkbox" name="plantas" id="group-plantas" />
+                        <label htmlFor="class-plantas">Plantas</label>
+                        <input type="checkbox" name="plantas" id="class-plantas" />
 
-                        <label htmlFor="group-hongos">Hongos</label>
-                        <input type="checkbox" name="hongos" id="group-hongos" />
+                        <label htmlFor="class-hongos">Hongos</label>
+                        <input type="checkbox" name="hongos" id="class-hongos" />
                     </fieldset>
                     <fieldset id='fs-color'>
                         <legend>Color del pelaje</legend>

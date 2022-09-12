@@ -8,7 +8,7 @@ import Navbar from './components/main/Navbar';
 import Footer from './components/main/Footer';
 import Gallery from './components/gallery/Gallery';
 import Illustrations from './components/illustrations/Illustrations';
-import Sound from './components/sounds/Sound';
+import About from './components/about/About';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,10 +25,10 @@ root.render(
           }
         />
         <Route
-          path='/sound/:id'
+          path='/about/:id'
           element={
             <>
-              <Sound />
+              <About />
             </>
           }
         />
