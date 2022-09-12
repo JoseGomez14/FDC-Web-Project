@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import useGetSpecies from '../../hooks/useGetSpecies'
+import Search from './Search';
 
 const Gallery = () => {
     const [loadState, setLoadState] = useState(true);
-    const [species, getMoreSpecies, moreToLoad, empty] = useGetSpecies();
+    const [species, empty] = useGetSpecies();
+    const [searchState, setSearchState] = useState(false);
+    const [filterSpecies, setFilterSpecies] = useState([])
 
     useEffect(() => {
         if (species.length > 0 || empty) {
@@ -15,21 +18,39 @@ const Gallery = () => {
     return (
         <section>
             <h1>Galleria</h1>
+
             {loadState &&
                 <h2>Cargando...</h2>
             }
 
-            {species.map((specie, index) => {
-                return <article key={'species-main' + index}>
-                    <h2>{specie.commonName}</h2>
-                    {specie.sound !== ''&&
-                    <NavLink to={`/sound/${specie.id}`}>Sonido</NavLink>}
-                </article>
-            })
+            {!loadState && !empty &&
+                <Search
+                    setSearchState={setSearchState}
+                    setFilterSpecies={setFilterSpecies}
+                    species={species}
+                />
             }
 
-            {moreToLoad &&
-                <button onClick={() => getMoreSpecies()}>Cargar Más</button>
+            {!searchState?
+                species.map((specie, index) => {
+                    return <article key={'species-main' + index}>
+                        <h2>{specie.commonName}</h2>
+                        {specie.sound !== ''&&
+                        <NavLink to={`/sound/${specie.id}`}>Sonido</NavLink>}
+                    </article>
+                })
+                :
+                filterSpecies.map((specie, index) => {
+                    return <article key={'species-main' + index}>
+                        <h2>{specie.commonName}</h2>
+                        {specie.sound !== ''&&
+                        <NavLink to={`/sound/${specie.id}`}>Sonido</NavLink>}
+                    </article>
+                })
+            }
+
+            {searchState && filterSpecies.length === 0 &&
+                <h2>¡Vaya! No hay especies registradas con las características seleccionadas.</h2>
             }
 
             {empty &&
