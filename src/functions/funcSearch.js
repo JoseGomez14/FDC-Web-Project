@@ -8,7 +8,7 @@ const basicSearch = (species, word) => {
         let wordSearch = word.toLowerCase();
         wordSearch = wordSearch.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
         
-        if (commonName.search(wordSearch) != -1) {
+        if (commonName.search(wordSearch) !== -1) {
             arrSpecies.push(specie);
         }
     });
@@ -34,13 +34,13 @@ const advancedSearch = (species, evt) =>{
                                 if(specie.className === childNode.name) arrSpecies.push(specie)
                                 break;
                             case 'fs-color':
-                                if(specie.color === childNode.name) arrSpecies.push(specie)
+                                if(specie.skinColor === childNode.name) arrSpecies.push(specie)
                                 break;
                             case 'fs-habitat':
                                 if(specie.habitat === childNode.name) arrSpecies.push(specie)
                                 break;
                             case 'fs-state':
-                                if(specie.state === childNode.name) arrSpecies.push(specie)
+                                if(specie.state === childNode.checked) arrSpecies.push(specie)
                                 break;
                             default:
                                 break;

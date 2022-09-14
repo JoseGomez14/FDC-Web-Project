@@ -86,6 +86,30 @@ const Search = ({ setSearchState, setFilterSpecies, species }) => {
 
                         <label htmlFor="color-amarillo">Amarillo</label>
                         <input type="checkbox" name="amarillo" id="color-amarillo" />
+
+                        <label htmlFor="color-amarillo">Amarillo</label>
+                        <input type="checkbox" name="amarillo" id="color-amarillo" />
+
+                        <label htmlFor="color-rosa">Rosa</label>
+                        <input type="checkbox" name="rosa" id="color-rosa" />
+
+                        <label htmlFor="color-anaranjado">Anaranjado</label>
+                        <input type="checkbox" name="anaranjado" id="color-anaranjado" />
+
+                        <label htmlFor="color-morado">Morado</label>
+                        <input type="checkbox" name="morado" id="color-morado" />
+
+                        <label htmlFor="color-cafe">Café</label>
+                        <input type="checkbox" name="cafe" id="color-cafe" />
+
+                        <label htmlFor="color-gris">Gris</label>
+                        <input type="checkbox" name="gris" id="color-gris" />
+
+                        <label htmlFor="color-blanco">Blanco</label>
+                        <input type="checkbox" name="blanco" id="color-blanco" />
+
+                        <label htmlFor="color-negro">Negro</label>
+                        <input type="checkbox" name="negro" id="color-negro" />
                     </fieldset>
                     <fieldset id='fs-habitat'>
                         <legend>Hábitat</legend>
@@ -111,7 +135,7 @@ const Search = ({ setSearchState, setFilterSpecies, species }) => {
                         <input type="checkbox" name="altiplano" id="habitat-altiplano" />
 
                         <label htmlFor="habitat-quebrada">Quebrada</label>
-                        <input type="checkbox" name="" id="habitat-quebrada" />
+                        <input type="checkbox" name="quebrada" id="habitat-quebrada" />
 
                         <label htmlFor="habitat-lago">Lago</label>
                         <input type="checkbox" name="lago" id="habitat-lago" />
