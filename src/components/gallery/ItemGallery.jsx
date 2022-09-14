@@ -1,4 +1,5 @@
 import React,  { useState } from 'react'
+import IconClass from '../../elements/IconClass';
 import About from '../about/About';
 
 /**
@@ -11,14 +12,17 @@ const ItemGallery = ({specie}) => {
     const [popUpState, setPopUpState] = useState(false)
     return ( 
         <article>
-            <h1>{specie.commonName}</h1>
-
-            <figure>
+            <figure onClick={() => setPopUpState(true)}>
                 <img src={specie.images[0]} alt={specie.commonName} width='400px'></img>
-                <figcaption>{specie.description}</figcaption>
+                <figcaption hidden>{specie.description}</figcaption>
             </figure>
 
-            {specie.description && <p><b>Descripción: </b>{specie.description}</p>}
+            <h1>{specie.commonName}</h1>
+            <p><i>{specie.scientificName}</i></p>
+            
+            <IconClass className={specie.className} height='50px' fill='black'/>
+
+            <p><b>Hábitat: </b>{specie.habitat}</p>
 
             <button onClick={() => setPopUpState(true)}>Acerca de {specie.commonName}</button>
 
