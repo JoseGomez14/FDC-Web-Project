@@ -1,11 +1,27 @@
 import React, { useState } from 'react';
 import { advancedSearch, basicSearch } from '../../functions/funcSearch';
 
+/**
+ *  Componente encargado del formulario de búsqueda y de filtrado
+ * 
+ * @param {*} setSearchState función que modifica el estado de búsqueda para identificar si en el
+ * momento de hacer cambios en los formularios hay consultas válidas para efectuar el filtro o si
+ * no es el caso para mostrar todas las especies
+ * @param {*} setFilterSpecies función que permite establecer el conjunto de especies que cumplen
+ * con las caracteristicas establecidas en los formularios
+ * @param {*} species conjunto de todas las especies
+ * @returns el formulario que permite realizar una consulta simple (por nombre) o el formulario que
+ * permite realizar una consulta avanzada (por características)
+ */
 const Search = ({ setSearchState, setFilterSpecies, species }) => {
 
     const [advanced, setAdvanced] = useState(false);
     const [nameSearch, setNameSearch] = useState('');
 
+    /**
+     * Permite establecer el nombre que se está buscando y si existe una consulta válida o no
+     * @param {*} evt información del evento asociado
+     */
     const handleSearchByName = (evt)=>{
         setNameSearch(evt.target.value)
         if(evt.target.value === ''){
@@ -13,6 +29,11 @@ const Search = ({ setSearchState, setFilterSpecies, species }) => {
         }
     }
 
+    /**
+     * Identifica el tipo de búsqueda y ejecuta la función adecuada según el caso
+     * 
+     * @param {*} evt información del evento asociado
+     */
     const handleSubmit = (evt) => {
         evt.preventDefault();
         if (advanced) {

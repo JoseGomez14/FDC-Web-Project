@@ -4,6 +4,12 @@ import useGetSpecies from '../../hooks/useGetSpecies'
 import ItemGallery from './ItemGallery'
 import Search from './Search';
 
+/**
+ * Muestra todas las especies disponibles, además integra una barra de búsqueda por nombre
+ * y un sistema de filtración por características de las especies
+ * 
+ * @returns un resumen de cada especie registrada en la base de datos
+ */
 const Gallery = () => {
     const [loadState, setLoadState] = useState(true);
     const [species, empty] = useGetSpecies();

@@ -1,5 +1,11 @@
 import './App.css';
 
+/**
+ * Componente encargado de mostrar la información de página principal
+ * muestra la información general del grupo FDC
+ * 
+ * @returns los elementos de la página principal
+ */
 function App() {
   return (
     <main className="App">

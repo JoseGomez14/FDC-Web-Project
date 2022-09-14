@@ -1,6 +1,10 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
+/**
+ * Se encarga de la iniacilazación de los servicios de firebase en el proyecto
+ * usando la información de conexión depositada en el archivo de entorno de desarrollo
+ */
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,

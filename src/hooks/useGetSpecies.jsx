@@ -1,7 +1,13 @@
 import { useState, useEffect } from 'react';
 import dataBase from '../firebase/firebaseConfig'
-import { collection, onSnapshot, query, limit, startAfter } from 'firebase/firestore'
+import { collection, onSnapshot, query } from 'firebase/firestore'
 
+/**
+ * Hook encargado de cargar todas las especies resgistradas
+ * @returns retorna la información de las especies y alguna información de la transacción como
+ * si aún hay disponibles o si no hay registros para tomar un control de esta información en los
+ * componentes encargados
+ */
 const useGetSpecies = () => {
     const [species, setSpecies] = useState([]);
     const [empty, setEmpty] = useState(false);

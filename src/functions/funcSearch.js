@@ -1,14 +1,28 @@
+/**
+ * Se encarga de identificar las especies que poseen en su nombre común o en su nombre
+ * cientifico una palabra o una frase.
+ * 
+ * Nota: se realiza un formateo de mayúsculas y de acentos para que la búsqueda no se 
+ * vea afectada.
+ * 
+ * @param {object} species conjunto de especies a filtrar
+ * @param {string} word palabra búscada
+ * @returns Conjunto de especies que en su nombre poseen la palabra buscada
+ */
 const basicSearch = (species, word) => {
     let arrSpecies = []
 
     species.forEach(specie => {
         let commonName = specie.commonName.toLowerCase()
         commonName = commonName.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
+        let scientificName = specie.scientificName.toLowerCase()
+        scientificName = commonName.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
         
         let wordSearch = word.toLowerCase();
         wordSearch = wordSearch.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
         
-        if (commonName.search(wordSearch) !== -1) {
+        if (commonName.search(wordSearch) !== -1 || scientificName.search(wordSearch) !== -1) {
             arrSpecies.push(specie);
         }
     });
@@ -16,6 +30,14 @@ const basicSearch = (species, word) => {
     return arrSpecies;
 }
 
+/**
+ * Esta función se encarga de filtrar un conjunto de especies dadas unas características establecidas
+ * en un formulario de filtros
+ * 
+ * @param {*} species conjunto de especies a filtrar
+ * @param {*} evt información del evento asociado (submit en el formulario)
+ * @returns conjunto de especies que cumplen con al menos una de las características solicitadas
+ */
 const advancedSearch = (species, evt) =>{
     let arrSpecies = []
     let stateFilter = false;

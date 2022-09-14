@@ -1,6 +1,12 @@
 import React,  { useState } from 'react'
 import About from '../about/About';
 
+/**
+ * Muestra el resumen de una especie dado el objeto que contiene su información
+ * 
+ * @param {*} specie información de la especie a mostrar
+ * @returns retorna el resumen de una especie en específico y la forma de ver más información de la misma
+ */
 const ItemGallery = ({specie}) => {
     const [popUpState, setPopUpState] = useState(false)
     return ( 
