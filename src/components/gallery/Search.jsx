@@ -66,109 +66,106 @@ const Search = ({ setSearchState, setFilterSpecies, species }) => {
                     <fieldset id='fs-clasification'>
                         <legend>Clasificación</legend>
                         <label htmlFor="class-fauna">Fauna</label>
-                        <input type="checkbox" name="fauna" id="class-fauna" />
+                        <input type="checkbox" name="Fauna" id="class-fauna" />
 
                         <label htmlFor="class-flora">Flora</label>
-                        <input type="checkbox" name="flora" id="class-flora" />
+                        <input type="checkbox" name="Flora" id="class-flora" />
                     </fieldset>
                     <fieldset id='fs-class'>
                         <legend>Clase</legend>
                         <label htmlFor="class-aves">Aves</label>
-                        <input type="checkbox" name="aves" id="class-aves" />
+                        <input type="checkbox" name="Aves" id="class-aves" />
 
                         <label htmlFor="class-mamiferos">Mamíferos</label>
-                        <input type="checkbox" name="mamiferos" id="class-mamiferos" />
+                        <input type="checkbox" name="Mamíferos" id="class-mamiferos" />
 
                         <label htmlFor="class-reptiles">Reptiles</label>
-                        <input type="checkbox" name="reptiles" id="class-reptiles" />
+                        <input type="checkbox" name="Reptiles" id="class-reptiles" />
 
                         <label htmlFor="class-anfibios">Anfibios</label>
-                        <input type="checkbox" name="anfibios" id="class-anfibios" />
+                        <input type="checkbox" name="Anfibios" id="class-anfibios" />
 
                         <label htmlFor="class-insectos">Insectos</label>
-                        <input type="checkbox" name="insectos" id="class-insectos" />
+                        <input type="checkbox" name="Insectos" id="class-insectos" />
 
                         <label htmlFor="class-plantas">Plantas</label>
-                        <input type="checkbox" name="plantas" id="class-plantas" />
+                        <input type="checkbox" name="Plantas" id="class-plantas" />
 
                         <label htmlFor="class-hongos">Hongos</label>
-                        <input type="checkbox" name="hongos" id="class-hongos" />
+                        <input type="checkbox" name="Hongos" id="class-hongos" />
                     </fieldset>
                     <fieldset id='fs-color'>
                         <legend>Color del pelaje</legend>
                         <label htmlFor="color-rojo">Rojo</label>
-                        <input type="checkbox" name="rojo" id="color-rojo" />
+                        <input type="checkbox" name="Rojo" id="color-rojo" />
 
                         <label htmlFor="color-azul">Azul</label>
-                        <input type="checkbox" name="azul" id="color-azul" />
+                        <input type="checkbox" name="Azul" id="color-azul" />
 
                         <label htmlFor="color-verde">Verde</label>
-                        <input type="checkbox" name="verde" id="color-verde" />
+                        <input type="checkbox" name="Verde" id="color-verde" />
 
                         <label htmlFor="color-amarillo">Amarillo</label>
-                        <input type="checkbox" name="amarillo" id="color-amarillo" />
-
-                        <label htmlFor="color-amarillo">Amarillo</label>
-                        <input type="checkbox" name="amarillo" id="color-amarillo" />
+                        <input type="checkbox" name="Amarillo" id="color-amarillo" />
 
                         <label htmlFor="color-rosa">Rosa</label>
-                        <input type="checkbox" name="rosa" id="color-rosa" />
+                        <input type="checkbox" name="Rosa" id="color-rosa" />
 
                         <label htmlFor="color-anaranjado">Anaranjado</label>
-                        <input type="checkbox" name="anaranjado" id="color-anaranjado" />
+                        <input type="checkbox" name="Anaranjado" id="color-anaranjado" />
 
                         <label htmlFor="color-morado">Morado</label>
-                        <input type="checkbox" name="morado" id="color-morado" />
+                        <input type="checkbox" name="Morado" id="color-morado" />
 
                         <label htmlFor="color-cafe">Café</label>
-                        <input type="checkbox" name="cafe" id="color-cafe" />
+                        <input type="checkbox" name="Café" id="color-cafe" />
 
                         <label htmlFor="color-gris">Gris</label>
-                        <input type="checkbox" name="gris" id="color-gris" />
+                        <input type="checkbox" name="Gris" id="color-gris" />
 
                         <label htmlFor="color-blanco">Blanco</label>
-                        <input type="checkbox" name="blanco" id="color-blanco" />
+                        <input type="checkbox" name="Blanco" id="color-blanco" />
 
                         <label htmlFor="color-negro">Negro</label>
-                        <input type="checkbox" name="negro" id="color-negro" />
+                        <input type="checkbox" name="Negro" id="color-negro" />
                     </fieldset>
                     <fieldset id='fs-habitat'>
                         <legend>Hábitat</legend>
                         <label htmlFor="habitat-pradera">Pradera</label>
-                        <input type="checkbox" name="pradera" id="habitat-pradera" />
+                        <input type="checkbox" name="Pradera" id="habitat-pradera" />
 
                         <label htmlFor="habitat-bosque">Bosque</label>
-                        <input type="checkbox" name="bosque" id="habitat-bosque" />
+                        <input type="checkbox" name="Bosque" id="habitat-bosque" />
 
                         <label htmlFor="habitat-desierto">Desierto</label>
-                        <input type="checkbox" name="desierto" id="habitat-desierto" />
+                        <input type="checkbox" name="Desierto" id="habitat-desierto" />
 
                         <label htmlFor="habitat-montana">Montaña</label>
-                        <input type="checkbox" name="montana" id="habitat-montana" />
+                        <input type="checkbox" name="Montaña" id="habitat-montana" />
 
                         <label htmlFor="habitat-marisma">Marisma</label>
-                        <input type="checkbox" name="marisma" id="habitat-marisma" />
+                        <input type="checkbox" name="Marisma" id="habitat-marisma" />
 
                         <label htmlFor="habitat-sabana">Sabana</label>
-                        <input type="checkbox" name="sabana" id="habitat-sabana" />
+                        <input type="checkbox" name="Sabana" id="habitat-sabana" />
 
                         <label htmlFor="habitat-altiplano">Altiplano</label>
-                        <input type="checkbox" name="altiplano" id="habitat-altiplano" />
+                        <input type="checkbox" name="Altiplano" id="habitat-altiplano" />
 
                         <label htmlFor="habitat-quebrada">Quebrada</label>
-                        <input type="checkbox" name="quebrada" id="habitat-quebrada" />
+                        <input type="checkbox" name="Quebrada" id="habitat-quebrada" />
 
                         <label htmlFor="habitat-lago">Lago</label>
-                        <input type="checkbox" name="lago" id="habitat-lago" />
+                        <input type="checkbox" name="Lago" id="habitat-lago" />
 
                         <label htmlFor="habitat-pantano">Pantano</label>
-                        <input type="checkbox" name="pantano" id="habitat-pantano" />
+                        <input type="checkbox" name="Pantano" id="habitat-pantano" />
 
                         <label htmlFor="habitat-rio">Río</label>
-                        <input type="checkbox" name="rio" id="habitat-rio" />
+                        <input type="checkbox" name="Río" id="habitat-rio" />
 
                         <label htmlFor="habitat-playa">Playa</label>
-                        <input type="checkbox" name="playa" id="habitat-playa" />
+                        <input type="checkbox" name="Playa" id="habitat-playa" />
 
                     </fieldset>
                     <fieldset id='fs-state'>

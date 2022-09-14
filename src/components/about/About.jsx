@@ -40,6 +40,7 @@ const About = ({idSpecie, setPopUpState}) => {
                     {specie.description  && <p><b>Descripción: </b>{specie.description}</p>}
                     {specie.genus        && <p><b>Género: </b>{specie.genus}</p>}
                     <p><b>Clase: </b>{specie.className}</p>
+                    <p><b>Reino: </b>{specie.kingdom}</p>
                     <p><b>Hábitat: </b>{specie.habitat}</p>
                     {specie.size !== 0     && <p><b>Tamaño: </b>{specie.size} cm</p>}
                     {specie.food           && <p><b>Alimentos: </b>{specie.food}</p>}
