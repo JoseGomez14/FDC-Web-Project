@@ -7,6 +7,9 @@ import { ReactComponent as IconSpdier } from '../images/spider.svg';
 import { ReactComponent as IconFrog } from '../images/frog.svg';
 import { ReactComponent as IconSnake} from '../images/snake.svg';
 
+/**
+ * Permite incorporar un icono dada la clase a la que pertenece la especie
+ */
 const IconClass = ({className, height}) => {
     switch (className) {
         case 'aves':
