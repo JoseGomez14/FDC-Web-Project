@@ -19,57 +19,71 @@ const Navbar = () => {
         setOpen(!open);
     };
 
+    window.onscroll = function () {
+        if (document.documentElement.scrollTop > 100) {
+            document.getElementById('dinamicNavbar').classList.remove('light');
+            document.getElementById('dinaNav').classList.remove('light');
+            document.getElementById('navHeader').classList.remove('light');
+        } else {
+            document.getElementById('dinamicNavbar').classList.add('light');
+            document.getElementById('dinaNav').classList.add('light');
+            document.getElementById('navHeader').classList.add('light');
+        }
+    }
+
     return (
-        <HeaderWrapper>
-            <div>
-                <NavLink to={'/'}>
-                    <IconFDC fill='#F4F4F4' height='2rem' style={{ marginTop: '0.3rem' }} />
-                </NavLink>
-            </div>
-            <div>
-                <NavbarWrapper open={open}>
-                    <ul>
-                        <li><a href='/#home' onClick={handleClick}>
-                            <FWIcon icon={faHome} /> Inicio
-                        </a>
-                        </li>
-                        <li>
-                            <a href='/#about-us' onClick={handleClick}>
-                                <FWIcon icon={faUsers} /> Nosotros
+        <Header>
+            <HeaderWrapper id='navHeader' className='light'>
+                <div>
+                    <NavLink to={'/'} id='dinamicNavbar' className='light'>
+                        <IconFDC fill='#F4F4F4' height='2rem' style={{ marginTop: '0.3rem' }} id='mainIcon' />
+                    </NavLink>
+                </div>
+                <div id='dinaNav'  className='light'>
+                    <NavbarWrapper open={open}>
+                        <ul>
+                            <li><a href='/#home' onClick={handleClick}>
+                                <FWIcon icon={faHome} /> Inicio
                             </a>
-                        </li>
-                        <li>
-                            <a href='/#productions' onClick={handleClick}>
-                                <FWIcon icon={faImages} /> Producciones
-                            </a>
-                        </li>
-                        <li>
-                            <a href='/#objectives' onClick={handleClick}>
-                                <FWIcon icon={faTasks} /> Objetivos
-                            </a>
-                        </li>
-                        <li>
-                            <a href='/#history' onClick={handleClick}>
-                                <FWIcon icon={faTimeline} /> Historia
-                            </a>
-                        </li>
-                        <li>
-                            <a href='/#allies' onClick={handleClick}>
-                                <FWIcon icon={faUsers} /> Aliados
-                            </a>
-                        </li>
-                        <li>
-                            <a href='/#contact' onClick={handleClick}>
-                                <FWIcon icon={faAddressBook} /> Contactos
-                            </a>
-                        </li>
-                    </ul>
-                </NavbarWrapper>
-            </div>
-            <div className='menuButton'>
-                <MenuButton open={open} handleClick={handleClick} />
-            </div>
-        </HeaderWrapper>
+                            </li>
+                            <li>
+                                <a href='/#about-us' onClick={handleClick}>
+                                    <FWIcon icon={faUsers} /> Nosotros
+                                </a>
+                            </li>
+                            <li>
+                                <a href='/#productions' onClick={handleClick}>
+                                    <FWIcon icon={faImages} /> Producciones
+                                </a>
+                            </li>
+                            <li>
+                                <a href='/#objectives' onClick={handleClick}>
+                                    <FWIcon icon={faTasks} /> Objetivos
+                                </a>
+                            </li>
+                            <li>
+                                <a href='/#history' onClick={handleClick}>
+                                    <FWIcon icon={faTimeline} /> Historia
+                                </a>
+                            </li>
+                            <li>
+                                <a href='/#allies' onClick={handleClick}>
+                                    <FWIcon icon={faUsers} /> Aliados
+                                </a>
+                            </li>
+                            <li>
+                                <a href='/#contact' onClick={handleClick}>
+                                    <FWIcon icon={faAddressBook} /> Contactos
+                                </a>
+                            </li>
+                        </ul>
+                    </NavbarWrapper>
+                </div>
+                <div className='menuButton'>
+                    <MenuButton open={open} handleClick={handleClick}/>
+                </div>
+            </HeaderWrapper>
+        </Header>
     );
 }
 
@@ -83,9 +97,11 @@ const NavbarWrapper = styled.nav`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background: ${theme.darkCyan};
+    background: ${theme.veryDarkCyan};
     position: fixed;
-    top: 3rem;
+    top: 3.5rem;
+    padding: 0;
+    z-index: 9;
     right: ${props => (props.open ? "0" : "-100%")};
     width: fit-content;
     height: 100vh;
@@ -119,7 +135,9 @@ const NavbarWrapper = styled.nav`
     @media (min-width: 1450px) {
         display: block;
         position: initial;
+        padding-top: 0;
         height: auto;
+        background: transparent;
         li{
             display: inline;
             margin: 0 0 0 0.375rem;
@@ -135,7 +153,6 @@ const NavbarWrapper = styled.nav`
  * Media Queries: 1450px, 768px
  */
 const HeaderWrapper = styled.header`
-    background-color: ${theme.darkCyan};
     position: fixed;
     top: 0;
     width: 100%;
@@ -149,17 +166,37 @@ const HeaderWrapper = styled.header`
 
     .menuButton{
         display: none;
+        z-index: 20;
+    }
+
+    .light{
+        background-color: transparent;
+        #mainIcon{
+            fill: ${theme.veryDarkCyan};
+        }
+
+        nav{
+            top: 0;
+            padding-top: 3.5rem;
+        }
+        
+        @media (min-width: 1450px) {
+            a{
+                color: ${theme.veryDarkCyan};
+            }
+            nav{
+                top: 3.5rem;
+                padding-top: 0;
+            }
+        }
+        
     }
 
     @media (max-width: 1450px) {
-        .menuButton{
-            display: block;
-        }
+        .menuButton{display: block;}
     }
 
-    @media (max-width: 768px) {
-        padding: 0.5rem 5%;
-    }
+    @media (max-width: 768px) {padding: 0.5rem 5%;}
 `
 
 /**
@@ -168,6 +205,21 @@ const HeaderWrapper = styled.header`
 const FWIcon = styled(FontAwesomeIcon)`
     font-size: 1.2rem;
     margin: 0 0.2rem 0.05rem 0;
+`
+
+/**
+ * Contenedor de la barra y el menú
+ */
+const Header = styled.header`
+    header{background-color: ${theme.darkCyan};}
+    
+    .light{
+        background-color: transparent;
+
+        #hamburguerIcon{
+            svg{fill: ${theme.veryDarkCyan}}
+        }
+    }
 `
 
 export default Navbar;

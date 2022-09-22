@@ -105,7 +105,7 @@ const GoDownButton = styled.button`
  */
 function MenuButton({ open, handleClick }) {
   return !open ? (
-    <MenuButtonWrapper onClick={handleClick} title="Enlaces de interés">
+    <MenuButtonWrapper onClick={handleClick} title="Enlaces de interés" id="hamburguerIcon">
       <svg viewBox="0 0 100 80" width="1.8rem" height="1.8rem" fill="#f4f4f4">
       <rect width={100} height={12} rx={6} />
       <rect x={10} y={34} width={90} height={12} rx={6} />
