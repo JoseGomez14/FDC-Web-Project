@@ -63,19 +63,19 @@ const ContainerGrid = styled.div`
     display: grid;
     overflow-x: auto;
     grid-gap: 1rem;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-auto-flow: dense;
 
     @media (max-width: 1100px){
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 
     @media (max-width: 800px){
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
     @media (max-width: 660px){
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
 `
@@ -88,7 +88,7 @@ const ContainerGrid = styled.div`
 const GridItem = styled.div`
     width: 100%;
     height: 100%;
-    max-height: 300px;
+    max-height: 200px;
     grid-column: span ${(props) => props.large? 2 : 1};
     grid-row: span 1;
     aspect-ratio: ${(props) => props.large? 2 : 1};
