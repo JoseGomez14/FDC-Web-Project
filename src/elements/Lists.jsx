@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import styled from "styled-components";
 import Point from '../images/Point';
 import Paragraph from './Paragraph';
@@ -39,7 +38,7 @@ const ListItem = ({ title, description, href }) => {
                 <Paragraph style={{ fontWeight: '600', fontSize: '1.375rem' }}><Point width='1rem' />{title}</Paragraph>
                 <Paragraph style={{ marginLeft: '2rem' }}>{description}</Paragraph>
             </div>}
-        {href && <NavLink to={href}><Paragraph style={{ fontWeight: '600', fontSize: '1.375rem' }}><Point width='1rem' />{title}</Paragraph></NavLink>}
+        {href && <a href={href}><Paragraph style={{ fontWeight: '600', fontSize: '1.375rem' }}><Point width='1rem' />{title}</Paragraph></a>}
     </li>);
 }
 
