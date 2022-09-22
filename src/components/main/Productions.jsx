@@ -18,13 +18,13 @@ const Productions = ({id}) => {
             <aside>
 
             </aside>
-            <aside>
+            <Aside>
                 <H2 light>Producciones</H2>
                 <Paragraph light>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate voluptates libero beatae quibusdam aspernatur aliquid at, sit excepturi explicabo praesentium distinctio a quia placeat itaque nulla sunt dolores architecto velit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate voluptates libero beatae quibusdam aspernatur aliquid at, sit excepturi explicabo praesentium distinctio a quia placeat itaque nulla sunt dolores architecto velit!</Paragraph>
                 <Paragraph light>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate voluptates libero beatae quibusdam aspernatur aliquid at, sit excepturi explicabo praesentium distinctio a quia placeat itaque nulla sunt dolores architecto velit!</Paragraph>
                 <br/>
                 <LearnMore as={NavLink} to='/gallery' light='true'>!Conoce más💚¡</LearnMore>
-            </aside>
+            </Aside>
         </ContainerRow>
     </Container> );
 }
@@ -43,5 +43,17 @@ const LearnMore = styled(Button)`
         font-size: 1.9rem;
     }
 `
- 
+
+/**
+ * Elemento estilizado que agrega un fondo en pantallas de tamaño medio e inferior para mejorar la visibilidad
+ * del texto
+ */
+const Aside = styled.aside`
+    @media (max-width: 1000px) {
+        background: rgba(0, 70, 81, 0.7);
+        padding: 15% 5%;
+        border-radius: 0.5rem;
+        backdrop-filter: blur(5px);
+    }
+` 
 export default Productions;
