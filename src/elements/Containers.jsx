@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import theme from "../theme";
 
 /**
@@ -14,8 +14,7 @@ const Container = styled.section`
     align-items: center;
     justify-content: center;
     background: ${(props) => props.image? 'url(' + props.image + ')': 
-        props.dark ? theme.veryDarkCyan: theme.veryLightGray};
-    
+        props.dark ? theme.veryDarkCyan: 'transparent'};
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
@@ -56,34 +55,31 @@ const ContainerRow = styled.article`
 
 /** 
  * Contendor grid - distribuye los elementos de forma forma uniforme, admite dos tamaños de item (1/1 y 2/1)
- * Media Queries (1100px, 800px, 660px)
 */
 const ContainerGrid = styled.div`
     width: 100%;
     display: grid;
     overflow-x: auto;
     grid-gap: 1rem;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
     grid-auto-flow: dense;
+    transition: all 0.3s ease-in-out;
+`
 
-    @media (max-width: 1100px){
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    @media (max-width: 800px){
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media (max-width: 660px){
-        grid-template-columns: repeat(2, 1fr);
-    }
-
+/**
+ * Contenedor grid que distribuye los elementos automáticamente según el tamaño de la pantalla
+ */
+const ContainerGallery = styled.div`
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+    gap: 1.5rem;
 `
 
 /** 
  * Item grid - elemento del grid
  * Estilos: large o normal
- * Media Queries (660px)
+ * Media Query: (660px)
 */
 const GridItem = styled.div`
     width: 100%;
@@ -105,4 +101,96 @@ const GridItem = styled.div`
     }
 `
 
-export { Container, ContainerColumn, ContainerRow, ContainerGrid, GridItem };
+/**
+ * Animación para keleton que mueve el background secuencialmente
+ */
+const shine = keyframes`
+    to {
+        background-position-x: -200%;
+    }
+`
+
+/** 
+ * Item grid - elemento del grid (Enfocado en elemento de galeria) con relación de aspecto 3:2
+ * Modifica los estilos de la imagen contenida y pone los titulos encima de la imagen
+*/
+const GridItemGallery = styled.div`
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 3/2;
+
+    figure{
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s ease-in-out;
+        img{
+            border-radius: 0.8rem;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 0% 0%;
+            background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+            background-size: 200% 100%;
+            animation: 1.5s ${shine} linear infinite;
+        }
+
+        &:hover{
+            transform: scale(1.025);
+        }
+
+        .specieInfo{
+            position: relative;
+            bottom: 3.3rem;
+        }
+    }
+`
+
+/**
+ * Contenedor flotante estilo PopUp o ventana emergente
+ */
+const ContainerFloat = styled.div`
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 30;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 2rem 4rem;
+
+    section{
+        position: relative;
+        height: 100%;
+        min-height: 100%;
+        overflow-y: scroll;
+        background-color: ${theme.veryLightGray};
+        border-radius: 0.8rem;
+        padding: 0%;
+        padding-bottom: 2rem;
+    }
+
+    @media (max-width: 585px) {
+        padding: 2rem 3%;
+    }
+`
+
+/**
+ * Contenedor tipo flex para varias imagenes
+ */
+const ContainerSlider = styled.div`
+    max-height: 25rem;
+    overflow-x: scroll;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 1rem;
+    img{
+        flex: 1 1 15rem;
+        object-fit: cover;
+        border-radius: 0.8rem;
+    }
+`
+
+export { Container, ContainerColumn, ContainerRow, ContainerGrid, ContainerGallery, GridItem, GridItemGallery, ContainerFloat, ContainerSlider };
