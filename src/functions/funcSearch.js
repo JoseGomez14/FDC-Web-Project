@@ -45,24 +45,25 @@ const advancedSearch = (species, evt) =>{
     evt.target.childNodes.forEach(node => {
         if(node.nodeName === 'FIELDSET'){
             node.childNodes.forEach(childNode => {
-                if(childNode.nodeName === 'INPUT' && childNode.checked){
+                if(childNode.nodeName === 'LABEL' && childNode.childNodes[0].checked){
                     stateFilter = true;
                     species.forEach(specie => {
+                        let nameInput =  childNode.childNodes[0].name
                         switch (node.id) {
                             case 'fs-clasification':
-                                if(specie.kingdom === childNode.name) arrSpecies.push(specie)
+                                if(specie.kingdom === nameInput) arrSpecies.push(specie)
                                 break;
                             case 'fs-class':
-                                if(specie.className === childNode.name) arrSpecies.push(specie)
+                                if(specie.className === nameInput) arrSpecies.push(specie)
                                 break;
                             case 'fs-color':
-                                if(specie.skinColor === childNode.name) arrSpecies.push(specie)
+                                if(specie.skinColor === nameInput) arrSpecies.push(specie)
                                 break;
                             case 'fs-habitat':
-                                if(specie.habitat === childNode.name) arrSpecies.push(specie)
+                                if(specie.habitat === nameInput) arrSpecies.push(specie)
                                 break;
                             case 'fs-state':
-                                if(specie.state === childNode.checked) arrSpecies.push(specie)
+                                if(specie.state === childNode.childNodes[0].checked) arrSpecies.push(specie)
                                 break;
                             default:
                                 break;
