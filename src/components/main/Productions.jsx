@@ -50,7 +50,7 @@ const LearnMore = styled(Button)`
  */
 const Aside = styled.aside`
     @media (max-width: 1000px) {
-        background: rgba(0, 70, 81, 0.7);
+        background: rgba(0, 70, 81, 0.5);
         padding: 15% 5%;
         border-radius: 0.5rem;
         backdrop-filter: blur(5px);
