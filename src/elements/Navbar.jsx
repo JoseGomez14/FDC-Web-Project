@@ -88,6 +88,24 @@ const Navbar = () => {
 }
 
 /**
+ * Contenedor de la barra y el menú
+ */
+ const Header = styled.header`
+    header{
+        background-color: ${theme.darkCyan};
+        transition: all 0.3s ease-in-out;
+    }
+
+    .light{
+        background-color: rgba(0, 0, 0, 0.1);
+
+    #hamburguerIcon{
+        svg{fill: ${theme.veryDarkCyan}}
+    }
+ }
+`
+
+/**
  * Navbar estilizado - lista los elementos según el tamaño de la pantalla,
  * ya sea en menú de hamburguesa o como lista en la misma barra (Para pantallas grandes)
  * Media Query: 1450px
@@ -105,7 +123,7 @@ const NavbarWrapper = styled.nav`
     right: ${props => (props.open ? "0" : "-100%")};
     width: fit-content;
     height: 100vh;
-    transition: right 0.3s linear;
+    transition: all 0.3s ease-in-out;
 
     ul{
         list-style-type: none;
@@ -205,21 +223,6 @@ const HeaderWrapper = styled.header`
 const FWIcon = styled(FontAwesomeIcon)`
     font-size: 1.2rem;
     margin: 0 0.2rem 0.05rem 0;
-`
-
-/**
- * Contenedor de la barra y el menú
- */
-const Header = styled.header`
-    header{background-color: ${theme.darkCyan};}
-    
-    .light{
-        background-color: transparent;
-
-        #hamburguerIcon{
-            svg{fill: ${theme.veryDarkCyan}}
-        }
-    }
 `
 
 export default Navbar;

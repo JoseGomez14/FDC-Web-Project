@@ -11,6 +11,7 @@ import ListItem, { List } from './Lists';
 const Footer = () => {
     return (
         <footer>
+            <hr style={{margin: '0 10%'}}/>
             <Container small>
                 <ContainerRow columnSmall>
                     <AsideLeft>
@@ -75,14 +76,14 @@ const AsideLeft = styled.aside`
     @media (max-width: 900px) {
         flex: 1 1 800px !important;
         margin-bottom: 2rem;
-        padding: 0 20%;
+        padding: 0 25%;
         &::before{
             height: 0;
         }
     }
 
     @media (max-width: 535px){
-        padding: 0 5%;
+        padding: 0 15%;
     }
 `
 
@@ -92,7 +93,7 @@ const AsideLeft = styled.aside`
  */
 const AsideRight = styled.aside`
     @media (max-width: 900px) {
-        margin-left: 3rem;
+        margin-left: 4rem;
     }
 `
 
