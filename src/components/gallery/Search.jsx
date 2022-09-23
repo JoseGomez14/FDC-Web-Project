@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { advancedSearch, basicSearch } from '../../functions/funcSearch';
+import { SearchButton, SearchForm, SearchInput } from '../../elements/SearchForm'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilter, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 /**
  *  Componente encargado del formulario de búsqueda y de filtrado
@@ -22,9 +25,9 @@ const Search = ({ setSearchState, setFilterSpecies, species }) => {
      * Permite establecer el nombre que se está buscando y si existe una consulta válida o no
      * @param {*} evt información del evento asociado
      */
-    const handleSearchByName = (evt)=>{
+    const handleSearchByName = (evt) => {
         setNameSearch(evt.target.value)
-        if(evt.target.value === ''){
+        if (evt.target.value === '') {
             setSearchState(false);
         }
     }
@@ -47,138 +50,208 @@ const Search = ({ setSearchState, setFilterSpecies, species }) => {
     return (
         <>
             {!advanced ?
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor='inpt-search'></label>
-                    <input
+                <SearchForm onSubmit={handleSubmit}>
+                    <SearchInput
                         id='inpt-search'
                         type='search'
                         placeholder='Nombre de la especie'
                         value={nameSearch}
-                        onChange={handleSearchByName}/>
-                    <button type='submit'>Buscar</button>
-                    <button onClick={() => {
+                        onChange={handleSearchByName} />
+                    <SearchButton type='submit' title='Buscar'> <FontAwesomeIcon icon={faSearch} /> </SearchButton>
+                    <SearchButton onClick={() => {
                         setAdvanced(true)
                         setSearchState(false)
-                    }}>Búsqueda avanzada</button>
-                </form>
+                    }}
+                        title='Búsqueda avanzada'
+                    > <FontAwesomeIcon icon={faFilter} /> </SearchButton>
+                </SearchForm>
                 :
-                <form onSubmit={handleSubmit}>
+                <SearchForm onSubmit={handleSubmit} column>
                     <fieldset id='fs-clasification'>
                         <legend>Clasificación</legend>
-                        <label htmlFor="class-fauna">Fauna</label>
-                        <input type="checkbox" name="Fauna" id="class-fauna" />
+                        <label htmlFor="class-fauna">
+                            <input type="checkbox" name="Fauna" id="class-fauna" />
+                            Fauna
+                        </label>
 
-                        <label htmlFor="class-flora">Flora</label>
-                        <input type="checkbox" name="Flora" id="class-flora" />
+                        <label htmlFor="class-flora">
+                            <input type="checkbox" name="Flora" id="class-flora" />
+                            Flora
+                        </label>
                     </fieldset>
+
                     <fieldset id='fs-class'>
                         <legend>Clase</legend>
-                        <label htmlFor="class-aves">Aves</label>
-                        <input type="checkbox" name="Aves" id="class-aves" />
+                        <label htmlFor="class-aves">
+                            <input type="checkbox" name="Aves" id="class-aves" />
+                            Aves
+                        </label>
 
-                        <label htmlFor="class-mamiferos">Mamíferos</label>
-                        <input type="checkbox" name="Mamíferos" id="class-mamiferos" />
+                        <label htmlFor="class-mamiferos">
+                            <input type="checkbox" name="Mamíferos" id="class-mamiferos" />
+                            Mamíferos
+                        </label>
 
-                        <label htmlFor="class-reptiles">Reptiles</label>
-                        <input type="checkbox" name="Reptiles" id="class-reptiles" />
+                        <label htmlFor="class-reptiles">
+                            <input type="checkbox" name="Reptiles" id="class-reptiles" />
+                            Reptiles
+                        </label>
 
-                        <label htmlFor="class-anfibios">Anfibios</label>
-                        <input type="checkbox" name="Anfibios" id="class-anfibios" />
+                        <label htmlFor="class-anfibios">
+                            <input type="checkbox" name="Anfibios" id="class-anfibios" />
+                            Anfibios
+                        </label>
 
-                        <label htmlFor="class-insectos">Insectos</label>
-                        <input type="checkbox" name="Insectos" id="class-insectos" />
+                        <label htmlFor="class-insectos">
+                            <input type="checkbox" name="Insectos" id="class-insectos" />
+                            Insectos
+                        </label>
 
-                        <label htmlFor="class-plantas">Plantas</label>
-                        <input type="checkbox" name="Plantas" id="class-plantas" />
+                        <label htmlFor="class-plantas">
+                            <input type="checkbox" name="Plantas" id="class-plantas" />
+                            Plantas
+                        </label>
 
-                        <label htmlFor="class-hongos">Hongos</label>
-                        <input type="checkbox" name="Hongos" id="class-hongos" />
+                        <label htmlFor="class-hongos">
+                            <input type="checkbox" name="Hongos" id="class-hongos" />
+                            Hongos
+                        </label>
                     </fieldset>
                     <fieldset id='fs-color'>
                         <legend>Color del pelaje</legend>
-                        <label htmlFor="color-rojo">Rojo</label>
-                        <input type="checkbox" name="Rojo" id="color-rojo" />
+                        <label htmlFor="color-rojo">
+                            <input type="checkbox" name="Rojo" id="color-rojo" />
+                            Rojo
+                        </label>
 
-                        <label htmlFor="color-azul">Azul</label>
-                        <input type="checkbox" name="Azul" id="color-azul" />
+                        <label htmlFor="color-azul">
+                            <input type="checkbox" name="Azul" id="color-azul" />
+                            Azul
+                        </label>
 
-                        <label htmlFor="color-verde">Verde</label>
-                        <input type="checkbox" name="Verde" id="color-verde" />
+                        <label htmlFor="color-verde">
+                            <input type="checkbox" name="Verde" id="color-verde" />
+                            Verde
+                        </label>
 
-                        <label htmlFor="color-amarillo">Amarillo</label>
-                        <input type="checkbox" name="Amarillo" id="color-amarillo" />
+                        <label htmlFor="color-amarillo">
+                            <input type="checkbox" name="Amarillo" id="color-amarillo" />
+                            Amarillo
+                        </label>
 
-                        <label htmlFor="color-rosa">Rosa</label>
-                        <input type="checkbox" name="Rosa" id="color-rosa" />
+                        <label htmlFor="color-rosa">
+                            <input type="checkbox" name="Rosa" id="color-rosa" />
+                            Rosa
+                        </label>
 
-                        <label htmlFor="color-anaranjado">Anaranjado</label>
-                        <input type="checkbox" name="Anaranjado" id="color-anaranjado" />
+                        <label htmlFor="color-anaranjado">
+                            <input type="checkbox" name="Anaranjado" id="color-anaranjado" />
+                            Anaranjado
+                        </label>
 
-                        <label htmlFor="color-morado">Morado</label>
-                        <input type="checkbox" name="Morado" id="color-morado" />
+                        <label htmlFor="color-morado">
+                            <input type="checkbox" name="Morado" id="color-morado" />
+                            Morado
+                        </label>
 
-                        <label htmlFor="color-cafe">Café</label>
-                        <input type="checkbox" name="Café" id="color-cafe" />
+                        <label htmlFor="color-cafe">
+                            <input type="checkbox" name="Café" id="color-cafe" />
+                            Café
+                        </label>
 
-                        <label htmlFor="color-gris">Gris</label>
-                        <input type="checkbox" name="Gris" id="color-gris" />
+                        <label htmlFor="color-gris">
+                            <input type="checkbox" name="Gris" id="color-gris" />
+                            Gris
+                        </label>
 
-                        <label htmlFor="color-blanco">Blanco</label>
-                        <input type="checkbox" name="Blanco" id="color-blanco" />
+                        <label htmlFor="color-blanco">
+                            <input type="checkbox" name="Blanco" id="color-blanco" />
+                            Blanco
+                        </label>
 
-                        <label htmlFor="color-negro">Negro</label>
-                        <input type="checkbox" name="Negro" id="color-negro" />
+                        <label htmlFor="color-negro">
+                            <input type="checkbox" name="Negro" id="color-negro" />
+                            Negro
+                        </label>
                     </fieldset>
                     <fieldset id='fs-habitat'>
                         <legend>Hábitat</legend>
-                        <label htmlFor="habitat-pradera">Pradera</label>
-                        <input type="checkbox" name="Pradera" id="habitat-pradera" />
+                        <label htmlFor="habitat-pradera">
+                            <input type="checkbox" name="Pradera" id="habitat-pradera" />
+                            Pradera
+                        </label>
 
-                        <label htmlFor="habitat-bosque">Bosque</label>
-                        <input type="checkbox" name="Bosque" id="habitat-bosque" />
+                        <label htmlFor="habitat-bosque">
+                            <input type="checkbox" name="Bosque" id="habitat-bosque" />
+                            Bosque
+                        </label>
 
-                        <label htmlFor="habitat-desierto">Desierto</label>
-                        <input type="checkbox" name="Desierto" id="habitat-desierto" />
+                        <label htmlFor="habitat-desierto">
+                            <input type="checkbox" name="Desierto" id="habitat-desierto" />
+                            Desierto
+                        </label>
 
-                        <label htmlFor="habitat-montana">Montaña</label>
-                        <input type="checkbox" name="Montaña" id="habitat-montana" />
+                        <label htmlFor="habitat-montana">
+                            <input type="checkbox" name="Montaña" id="habitat-montana" />
+                            Montaña
+                        </label>
 
-                        <label htmlFor="habitat-marisma">Marisma</label>
-                        <input type="checkbox" name="Marisma" id="habitat-marisma" />
+                        <label htmlFor="habitat-marisma">
+                            <input type="checkbox" name="Marisma" id="habitat-marisma" />
+                            Marisma
+                        </label>
 
-                        <label htmlFor="habitat-sabana">Sabana</label>
-                        <input type="checkbox" name="Sabana" id="habitat-sabana" />
+                        <label htmlFor="habitat-sabana">
+                            <input type="checkbox" name="Sabana" id="habitat-sabana" />
+                            Sabana
+                        </label>
 
-                        <label htmlFor="habitat-altiplano">Altiplano</label>
-                        <input type="checkbox" name="Altiplano" id="habitat-altiplano" />
+                        <label htmlFor="habitat-altiplano">
+                            <input type="checkbox" name="Altiplano" id="habitat-altiplano" />
+                            Altiplano
+                        </label>
 
-                        <label htmlFor="habitat-quebrada">Quebrada</label>
-                        <input type="checkbox" name="Quebrada" id="habitat-quebrada" />
+                        <label htmlFor="habitat-quebrada">
+                            <input type="checkbox" name="Quebrada" id="habitat-quebrada" />
+                            Quebrada
+                        </label>
 
-                        <label htmlFor="habitat-lago">Lago</label>
-                        <input type="checkbox" name="Lago" id="habitat-lago" />
+                        <label htmlFor="habitat-lago">
+                            <input type="checkbox" name="Lago" id="habitat-lago" />
+                            Lago
+                        </label>
 
-                        <label htmlFor="habitat-pantano">Pantano</label>
-                        <input type="checkbox" name="Pantano" id="habitat-pantano" />
+                        <label htmlFor="habitat-pantano">
+                            <input type="checkbox" name="Pantano" id="habitat-pantano" />
+                            Pantano
+                        </label>
 
-                        <label htmlFor="habitat-rio">Río</label>
-                        <input type="checkbox" name="Río" id="habitat-rio" />
+                        <label htmlFor="habitat-rio">
+                            <input type="checkbox" name="Río" id="habitat-rio" />
+                            Río
+                        </label>
 
-                        <label htmlFor="habitat-playa">Playa</label>
-                        <input type="checkbox" name="Playa" id="habitat-playa" />
+                        <label htmlFor="habitat-playa">
+                            <input type="checkbox" name="Playa" id="habitat-playa" />
+                            Playa
+                        </label>
 
                     </fieldset>
                     <fieldset id='fs-state'>
                         <legend>Estado</legend>
-                        <label htmlFor="state-extinction">En vía de extinción</label>
-                        <input type="checkbox" name="extinction" id="state-extinction" />
+                        <label htmlFor="state-extinction" style={{ width: '12rem' }}>
+                            <input type="checkbox" name="extinction" id="state-extinction" />
+                            En vía de extinción
+                        </label>
                     </fieldset>
-                    <button type='submit'>Filtrar</button>
-                    <button onClick={() => {
-                        setAdvanced(false)
-                        setSearchState(false)
-                    }}>Búsqueda por nombre</button>
-                </form>}
+                    <div>
+                        <SearchButton type='submit' style={{marginRight: '0.5rem'}}>Filtrar</SearchButton>
+                        <SearchButton onClick={() => {
+                            setAdvanced(false)
+                            setSearchState(false)
+                        }}>Búsqueda por nombre</SearchButton>
+                    </div>
+                </SearchForm>}
 
         </>
     );
