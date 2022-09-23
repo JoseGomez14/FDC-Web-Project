@@ -122,4 +122,23 @@ function MenuButton({ open, handleClick }) {
   );
 }
 
-export {ContactButton, Button, MenuButton, GoDownButton};
+/**
+ * Botón de regreso estilizado, redondeado y con hover
+ */
+const BackButton = styled.button`
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 3rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover{
+    transform: scale(1.05);
+  }
+`
+
+export {ContactButton, Button, MenuButton, GoDownButton, BackButton};
