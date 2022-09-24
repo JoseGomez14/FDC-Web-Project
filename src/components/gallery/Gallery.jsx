@@ -5,6 +5,7 @@ import ItemGallery from './ItemGallery';
 import Search from './Search';
 import { Container, ContainerColumn, ContainerGallery } from '../../elements/Containers';
 import { H2 } from '../../elements/Titles';
+import Spinner from '../../elements/Spinner';
 
 /**
  * Muestra todas las especies disponibles, además integra una barra de búsqueda por nombre
@@ -25,12 +26,10 @@ const Gallery = () => {
     }, [empty, species])
 
     return (
-        <Container style={{paddingTop: '5rem'}}>
-            <ContainerColumn style={{alignItems: 'start'}}>
+        <Container style={{ paddingTop: '5rem' }}>
+            <ContainerColumn style={{ alignItems: 'start' }}>
                 <H2>Galleria</H2>
-                {loadState &&
-                    <h2>Cargando...</h2>
-                }
+                {loadState && <Container><Spinner /></Container>}
 
                 {!loadState && !empty &&
                     <Search
