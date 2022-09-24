@@ -13,6 +13,7 @@ const Container = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.5s ease-in-out;
     background: ${(props) => props.image? 'url(' + props.image + ')': 
         props.dark ? theme.veryDarkCyan: 'transparent'};
     background-repeat: no-repeat;
