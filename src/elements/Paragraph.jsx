@@ -11,6 +11,7 @@ const Paragraph = styled.p`
     position: relative;
     color: ${(props) => props.light ? theme.veryLightGray : '#000'};
     margin-bottom: 1rem;
+    text-shadow: ${(props)=> props.shadow && "0.1rem 0.1rem 0.25rem " + theme.veryDarkCyan};
 `
  
 export default Paragraph;
