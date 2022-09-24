@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, ContainerColumn, ContainerRow } from '../../elements/Containers';
 import { H1 } from '../../elements/Titles';
 import Paragraph from '../../elements/Paragraph'
-import imgTeamFDC from '../../images/teamFDC.png'
+import imgTeamFDC1 from '../../images/teamFDC1.png'
+import imgTeamFDC2 from '../../images/teamFDC2.png'
+import imgTeamFDC3 from '../../images/teamFDC3.png'
 import iconDown from '../../images/iconDown.png'
 import styled from 'styled-components';
 import { GoDownButton } from '../../elements/Buttons';
@@ -14,14 +16,23 @@ import theme from '../../theme';
  * @returns sección de bienvenida al sitio
  */
 const Home = ({ id }) => {
-    return (<ContainerC dark id={id} image={imgTeamFDC}>
+    const teamImages = [imgTeamFDC1, imgTeamFDC2, imgTeamFDC3]
+    const [contImg, setContImg] = useState(0);
+
+    useEffect(() => {
+        setTimeout(() => {
+            (contImg < teamImages.length - 1) ? setContImg(contImg + 1) : setContImg(0)
+        }, 4000)
+    }, [contImg, teamImages.length])
+
+    return (<ContainerC dark id={id} image={teamImages[contImg]}>
         <ContainerColumn>
             <aside>
                 <ContainerRow>
                     <aside>
                         <H1 light style={{ letterSpacing: '0.1rem', marginTop: '4rem' }}>Fuera De</H1>
                         <H1 light>Contexto</H1>
-                        <Paragraph light style={{ fontSize: '1.8rem' }}><em>"Investigadores de lo nuestro"</em></Paragraph>
+                        <Paragraph light shadow style={{ fontSize: '1.8rem' }}><em>"Investigadores de lo nuestro"</em></Paragraph>
                     </aside>
                     <aside></aside>
                 </ContainerRow>
