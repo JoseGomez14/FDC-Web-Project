@@ -14,73 +14,59 @@ import { faImages } from '@fortawesome/free-regular-svg-icons';
  */
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const [stateNavbar, setStateNavbar] = useState('light');
 
     const handleClick = () => {
         setOpen(!open);
     };
 
-    window.onscroll = function () {
-        if (document.documentElement.scrollTop > 100) {
-            document.getElementById('dinamicNavbar').classList.remove('light');
-            document.getElementById('dinaNav').classList.remove('light');
-            document.getElementById('navHeader').classList.remove('light');
-        } else {
-            document.getElementById('dinamicNavbar').classList.add('light');
-            document.getElementById('dinaNav').classList.add('light');
-            document.getElementById('navHeader').classList.add('light');
-        }
+    window.onscroll = () => {
+        (document.documentElement.scrollTop > 20) ? setStateNavbar('dark') : setStateNavbar('light')
     }
 
     return (
         <Header>
-            <HeaderWrapper id='navHeader' className='light'>
+            <HeaderWrapper id='navHeader' className={stateNavbar}>
                 <div>
-                    <NavLink to={'/'} id='dinamicNavbar' className='light'>
+                    <NavLink to={'/'} id='dinamicNavbar' className={stateNavbar}>
                         <IconFDC fill='#F4F4F4' height='2rem' style={{ marginTop: '0.3rem' }} id='mainIcon' />
                     </NavLink>
                 </div>
-                <div id='dinaNav'  className='light'>
+                <div id='dinaNav' className={stateNavbar}>
                     <NavbarWrapper open={open}>
                         <ul>
                             <li><a href='/#home' onClick={handleClick}>
-                                <FWIcon icon={faHome} /> Inicio
-                            </a>
+                                <FWIcon icon={faHome} /> Inicio</a>
                             </li>
-                            <li>
-                                <a href='/#about-us' onClick={handleClick}>
-                                    <FWIcon icon={faUsers} /> Nosotros
-                                </a>
+
+                            <li><a href='/#about-us' onClick={handleClick}>
+                                <FWIcon icon={faUsers} /> Nosotros</a>
                             </li>
-                            <li>
-                                <a href='/#productions' onClick={handleClick}>
-                                    <FWIcon icon={faImages} /> Producciones
-                                </a>
+
+                            <li><a href='/#productions' onClick={handleClick}>
+                                <FWIcon icon={faImages} /> Producciones</a>
                             </li>
-                            <li>
-                                <a href='/#objectives' onClick={handleClick}>
-                                    <FWIcon icon={faTasks} /> Objetivos
-                                </a>
+
+                            <li><a href='/#objectives' onClick={handleClick}>
+                                <FWIcon icon={faTasks} /> Objetivos</a>
                             </li>
-                            <li>
-                                <a href='/#history' onClick={handleClick}>
-                                    <FWIcon icon={faTimeline} /> Historia
-                                </a>
+
+                            <li><a href='/#history' onClick={handleClick}>
+                                <FWIcon icon={faTimeline} /> Historia</a>
                             </li>
-                            <li>
-                                <a href='/#allies' onClick={handleClick}>
-                                    <FWIcon icon={faUsers} /> Aliados
-                                </a>
+
+                            <li><a href='/#allies' onClick={handleClick}>
+                                <FWIcon icon={faUsers} /> Aliados</a>
                             </li>
-                            <li>
-                                <a href='/#contact' onClick={handleClick}>
-                                    <FWIcon icon={faAddressBook} /> Contactos
-                                </a>
+
+                            <li><a href='/#contact' onClick={handleClick}>
+                                <FWIcon icon={faAddressBook} /> Contactos</a>
                             </li>
                         </ul>
                     </NavbarWrapper>
                 </div>
                 <div className='menuButton'>
-                    <MenuButton open={open} handleClick={handleClick}/>
+                    <MenuButton open={open} handleClick={handleClick} />
                 </div>
             </HeaderWrapper>
         </Header>
@@ -90,7 +76,7 @@ const Navbar = () => {
 /**
  * Contenedor de la barra y el menú
  */
- const Header = styled.header`
+const Header = styled.header`
     header{
         background-color: ${theme.darkCyan};
         transition: all 0.3s ease-in-out;
