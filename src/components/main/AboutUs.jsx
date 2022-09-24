@@ -16,11 +16,9 @@ const AboutUs = ({ id }) => {
             <aside>
                 <H2>Acerca de Nosotros</H2>
 
-                <Paragraph>Generación de conocimiento de las especies de fauna y flora del municipio de Santo Domingo, Antioquia para crear conciencia y sentido de pertenencia con el cuidado del ambiente.</Paragraph>
+                <Paragraph>Somos un grupo de investigación <em>ONDAS</em> de la Institución Educativa Técnico Industrial Tomás Carrasquilla del municipio de Santo Domingo, Antioquia, Colombia. El grupo está conformado por 20 estudiantes de grados entre 9° a 11°.</Paragraph>
 
-                <Paragraph>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere perferendis a autem similique quidem, voluptate magni! Dolorem cum, illum numquam incidunt ipsam quae? Eaque et quis earum cupiditate, mollitia veritatis?</Paragraph>
-
-                <Paragraph>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere perferendis a autem similique quidem, voluptate magni! Dolorem cum, illum numquam incidunt ipsam quae? Eaque et quis earum cupiditate, mollitia veritatis?. </Paragraph>
+                <Paragraph>El título de nuestro proyecto es <em>caracterizar la fauna del municipio de Santo Domingo, Antioquia a partir de la pregunta ¿Cuáles son las especies de fauna presentes en el municipio de Santo Domingo? El grupo adquiere el compromiso de identificar las especies de fauna presentes en el municipio para educar en una cultura de cuidado y preservación de las especies y del medio ambiente mediante el conocimiento, identificación y familiarización.</em></Paragraph>
             </aside>
             <aside>
                 <Img src={logoFdc} alt="Logo - Fuera de Contexto" />

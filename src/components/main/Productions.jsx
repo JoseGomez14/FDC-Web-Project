@@ -20,8 +20,11 @@ const Productions = ({id}) => {
             </aside>
             <Aside>
                 <H2 light>Producciones</H2>
-                <Paragraph light>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate voluptates libero beatae quibusdam aspernatur aliquid at, sit excepturi explicabo praesentium distinctio a quia placeat itaque nulla sunt dolores architecto velit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate voluptates libero beatae quibusdam aspernatur aliquid at, sit excepturi explicabo praesentium distinctio a quia placeat itaque nulla sunt dolores architecto velit!</Paragraph>
-                <Paragraph light>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate voluptates libero beatae quibusdam aspernatur aliquid at, sit excepturi explicabo praesentium distinctio a quia placeat itaque nulla sunt dolores architecto velit!</Paragraph>
+                <Paragraph light>Diseñamos una colección que contiene las especies de fauna del municipio de Santo Domingo con registros fotográficos plasmados en ella, el nombre común y científico de la especie y algunas características que permitan conocer el estilo de vida o maneras de comportamiento biológico de algunas familias, géneros o especies. También hacemos uso de redes sociales, en donde se publican fotografías con sus respectivos nombres (común y científico) con el fin de generar interacción con la comunidad que utilice las nuevas tecnologías.</Paragraph>
+                
+                <Paragraph light>En las salidas de campo que realizamos, además de obtener registros fotográficos, también se graban sonidos de las especies, los cuales son divulgados a la comunidad a través de nuestro sitio Web.</Paragraph>
+                
+                <Paragraph light>Al tener en cuenta que en algunos registros fotográficos no se pueden obtener algunos detalles de la naturaleza o que no se pueden plasmar ciertos procesos, en el grupo de investigación recurrimos a la ilustración científica mediante los integrantes del proyecto, para luego involucrar a otras personas como artistas y niños y adolescentes estudiantes.</Paragraph>
                 <br/>
                 <LearnMore as={NavLink} to='/gallery' light='true'>!Conoce más💚¡</LearnMore>
             </Aside>
