@@ -8,6 +8,7 @@ import useGetSpecie from '../../hooks/useGetSpecie';
 import { BackButton } from '../../elements/Buttons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import Spinner from '../../elements/Spinner';
 
 /**
  * Componente que permite mostrar a profundidad la información de una especie, es decir,
@@ -30,7 +31,7 @@ const About = ({ idSpecie, setPopUpState }) => {
             {setPopUpState && <BackButton onClick={() => setPopUpState(false)} title='Volver a la gallería'><FontAwesomeIcon icon={faArrowLeft} /></BackButton>}
             <ContainerColumn>
 
-                {docState === 'load' && <h1>Cargando...</h1>}
+                {docState === 'load' && <Spinner/>}
                 {docState === 'empty' && <h1>La especie no se ha encontrado, encuentra otras especies <NavLink to={'/gallery'}>aquí</NavLink></h1>}
                 {docState === 'exists' &&
                     <Article>
@@ -44,7 +45,7 @@ const About = ({ idSpecie, setPopUpState }) => {
 
                         {specie.sound !== '' && <ContainerColumn>
                             <Paragraph><b>Sonido de la especie</b></Paragraph>
-                            <audio src={specie.sound} controls w></audio>
+                            <Audio src={specie.sound} controls w></Audio>
                             {specie.srcSound && <Paragraph><b>Sonido tomado de: </b>{specie.srcSound}</Paragraph>}
                         </ContainerColumn>}
 
@@ -70,7 +71,7 @@ const About = ({ idSpecie, setPopUpState }) => {
 
                         {specie.inaturalistUrl && <Paragraph><b>Observación en iNaturalist: </b><a href={specie.inaturalistUrl} target='_blank' rel='noreferrer'>{specie.inaturalistUrl}</a></Paragraph>}
 
-                        <Paragraph><b>Compartir especie: </b>{urlSpecie}</Paragraph>
+                        <Paragraph><b>Compartir especie: </b><a href={urlSpecie} target='_blank' rel='noreferrer'>{urlSpecie}</a></Paragraph>
                     </Article>
                 }
             </ContainerColumn>
@@ -83,6 +84,14 @@ const Article = styled.article`
     p{
         margin: 10px;
     }
+`
+
+const Audio = styled.audio`
+    &::-webkit-media-controls-play-button, &::-webkit-media-controls-panel{
+        background-color: #bbe29e;
+    }
+    background-color: #bbe29e;
+    border-radius: 2rem;
 `
 
 export default About;
