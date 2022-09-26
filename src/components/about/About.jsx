@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import Contact from '../main/Contacts';
 import { Container, ContainerColumn, ContainerSlider } from '../../elements/Containers';
 import { H2 } from '../../elements/Titles'
 import Paragraph from '../../elements/Paragraph'
@@ -9,6 +10,7 @@ import { BackButton } from '../../elements/Buttons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Spinner from '../../elements/Spinner';
+import Slider from '../../elements/Slider';
 
 /**
  * Componente que permite mostrar a profundidad la información de una especie, es decir,
@@ -26,21 +28,19 @@ const About = ({ idSpecie, setPopUpState }) => {
     const [specie, docState] = useGetSpecie(idSpecie || id);
     const urlSpecie = document.location.origin + '/about/' + (idSpecie || id);
 
-    return (
+    return (<>
         <Container>
             {setPopUpState && <BackButton onClick={() => setPopUpState(false)} title='Volver a la gallería'><FontAwesomeIcon icon={faArrowLeft} /></BackButton>}
             <ContainerColumn>
 
-                {docState === 'load' && <Spinner/>}
+                {docState === 'load' && <Spinner />}
                 {docState === 'empty' && <h1>La especie no se ha encontrado, encuentra otras especies <NavLink to={'/gallery'}>aquí</NavLink></h1>}
                 {docState === 'exists' &&
                     <Article>
                         <H2 title='Nombre común'>{specie.commonName}</H2>
 
                         <ContainerSlider>
-                            {specie.images.map((image, index) => {
-                                return <img src={image} alt={specie.commonName} width='400px' key={'image-' + index}></img>
-                            })}
+                            <Slider slides={specie.images} />
                         </ContainerSlider>
 
                         {specie.sound !== '' && <ContainerColumn>
@@ -76,11 +76,12 @@ const About = ({ idSpecie, setPopUpState }) => {
                 }
             </ContainerColumn>
         </Container>
+        {!setPopUpState && <Contact/>}
+    </>
     );
 }
 
 const Article = styled.article`
-    margin-top: 20%;
     p{
         margin: 10px;
     }
