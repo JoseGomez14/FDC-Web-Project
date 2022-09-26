@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import useGetSpecies from '../../hooks/useGetSpecies';
 import ItemGallery from './ItemGallery';
 import Search from './Search';
+import Contact from '../main/Contacts'
 import { Container, ContainerColumn, ContainerGallery } from '../../elements/Containers';
 import { H2 } from '../../elements/Titles';
 import Spinner from '../../elements/Spinner';
@@ -25,7 +26,7 @@ const Gallery = () => {
         }
     }, [empty, species])
 
-    return (
+    return (<>
         <Container style={{ paddingTop: '5rem' }}>
             <ContainerColumn style={{ alignItems: 'start' }}>
                 <H2>Galleria</H2>
@@ -67,6 +68,8 @@ const Gallery = () => {
                 }
             </ContainerColumn>
         </Container>
+        <Contact />
+    </>
     );
 }
 
