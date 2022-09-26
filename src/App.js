@@ -1,4 +1,3 @@
-import './App.css';
 import AboutUs from './components/main/AboutUs';
 import Allies from './components/main/Allies';
 import Objetives from './components/main/Objectives';

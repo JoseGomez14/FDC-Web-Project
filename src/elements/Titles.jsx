@@ -35,7 +35,7 @@ const H2 = styled.h2`
         height: 3px;
         width: 17rem;
         position: absolute;
-        bottom: 6px;
+        bottom: 4px;
     }
 
 `

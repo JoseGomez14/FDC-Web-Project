@@ -7,15 +7,15 @@ import theme from "../theme";
  * Media Queries (768px)
  */
 const Container = styled.section`
-    min-height: calc(${(props) => props.small? '30vh' : '100vh'} - 3rem);
+    min-height: calc(${(props) => props.small ? '30vh' : '100vh'} - 3rem);
     width: 100%;
     padding: 8% 10%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.5s ease-in-out;
-    background: ${(props) => props.image? 'url(' + props.image + ')': 
-        props.dark ? theme.veryDarkCyan: 'transparent'};
+    background: ${(props) => props.image ? 'url(' + props.image + ')' :
+        props.dark ? theme.veryDarkCyan : 'transparent'};
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
@@ -45,12 +45,12 @@ const ContainerColumn = styled.article`
 const ContainerRow = styled.article`
     width: 100%;
     display: flex;
-    align-items: ${(props) => props.alignStart? 'flex-start': 'center'};
+    align-items: ${(props) => props.alignStart ? 'flex-start' : 'center'};
     justify-content: center;
     flex-wrap: wrap;
 
     aside{
-        flex: 1 1 ${(props) => props.columnSmall ? '240px': '400px'};
+        flex: 1 1 ${(props) => props.columnSmall ? '240px' : '400px'};
     }
 `
 
@@ -86,9 +86,9 @@ const GridItem = styled.div`
     width: 100%;
     height: 100%;
     max-height: 200px;
-    grid-column: span ${(props) => props.large? 2 : 1};
+    grid-column: span ${(props) => props.large ? 2 : 1};
     grid-row: span 1;
-    aspect-ratio: ${(props) => props.large? 2 : 1};
+    aspect-ratio: ${(props) => props.large ? 2 : 1};
     background-color: white;
     border-radius: 0.8rem;
     padding: 2rem;
@@ -163,35 +163,49 @@ const ContainerFloat = styled.div`
     padding: 2rem 4rem;
 
     section{
-        position: relative;
         height: 100%;
         min-height: 100%;
         overflow-y: scroll;
+        position: relative;
         background-color: ${theme.veryLightGray};
         border-radius: 0.8rem;
-        padding: 0%;
+        padding: 15% 0;
         padding-bottom: 2rem;
     }
 
     @media (max-width: 585px) {
-        padding: 2rem 3%;
+        section{
+            padding: 40% 3%;
+        }
     }
 `
 
 /**
- * Contenedor tipo flex para varias imagenes
+ * Contenedor tipo flex para slider
  */
 const ContainerSlider = styled.div`
-    max-height: 25rem;
-    overflow-x: scroll;
+.swiper {
+    width: 600px;
+    height: 400px;
+    border-radius: 0.8rem;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+  
     display: flex;
-    flex-wrap: nowrap;
-    margin-bottom: 1rem;
-    img{
-        flex: 1 1 15rem;
-        object-fit: cover;
-        border-radius: 0.8rem;
-    }
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.8rem;
+  }
 `
 
 export { Container, ContainerColumn, ContainerRow, ContainerGrid, ContainerGallery, GridItem, GridItemGallery, ContainerFloat, ContainerSlider };
