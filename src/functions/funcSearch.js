@@ -17,7 +17,7 @@ const basicSearch = (species, word) => {
         commonName = commonName.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
 
         let scientificName = specie.scientificName.toLowerCase()
-        scientificName = commonName.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+        scientificName = scientificName.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
         
         let wordSearch = word.toLowerCase();
         wordSearch = wordSearch.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
