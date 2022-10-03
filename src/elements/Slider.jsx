@@ -8,7 +8,6 @@ import 'swiper/css/pagination';
 /**
  * Presentación de imagenes con controles y páginación
  * @param {*} slides arreglo de imagenes a presentar
- * @returns 
  */
 const Slider = ({ slides }) => {
     return <>

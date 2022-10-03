@@ -101,7 +101,6 @@ const GoDownButton = styled.button`
  * Botón del menú hamburguesa dinámico (Icono de hamburguesa y icono de cierre)
  * @param {*} open Estado del menú hamburguesa
  * @param {*} handleClick función que se ejecurá al hacer click 
- * @returns 
  */
 function MenuButton({ open, handleClick }) {
   return !open ? (

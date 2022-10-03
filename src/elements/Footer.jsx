@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Container, ContainerRow } from './Containers';
-import IconFDC from '../images/IconFDC';
+import IconFDC from '../assets/images/IconFDC';
 import ListItem, { List } from './Lists';
 
 /**

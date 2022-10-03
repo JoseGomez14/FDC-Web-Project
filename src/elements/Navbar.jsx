@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import theme from '../theme';
 import { MenuButton } from '../elements/Buttons';
-import IconFDC from '../images/IconFDC';
+import IconFDC from '../assets/images/IconFDC';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faTasks, faTimeline, faUsers, faAddressBook } from '@fortawesome/free-solid-svg-icons';
+import { faTasks, faTimeline, faUsers, faAddressBook } from '@fortawesome/free-solid-svg-icons';
 import { faImages } from '@fortawesome/free-regular-svg-icons';
 
 /**
@@ -35,10 +35,6 @@ const Navbar = () => {
                 <div id='dinaNav' className={stateNavbar}>
                     <NavbarWrapper open={open}>
                         <ul>
-                            <li><a href='/#home' onClick={handleClick}>
-                                <FWIcon icon={faHome} /> Inicio</a>
-                            </li>
-
                             <li><a href='/#about-us' onClick={handleClick}>
                                 <FWIcon icon={faUsers} /> Nosotros</a>
                             </li>
@@ -53,10 +49,6 @@ const Navbar = () => {
 
                             <li><a href='/#history' onClick={handleClick}>
                                 <FWIcon icon={faTimeline} /> Historia</a>
-                            </li>
-
-                            <li><a href='/#allies' onClick={handleClick}>
-                                <FWIcon icon={faUsers} /> Aliados</a>
                             </li>
 
                             <li><a href='/#contact' onClick={handleClick}>
@@ -109,16 +101,13 @@ const NavbarWrapper = styled.nav`
     right: ${props => (props.open ? "0" : "-100%")};
     width: fit-content;
     height: 100vh;
-    transition: all 0.3s ease-in-out;
 
     ul{
         list-style-type: none;
         text-align: center;
     }
 
-    li{
-        margin: 2rem 3rem;
-    }
+    li{margin: 2rem 3rem}
 
     a{
         font-size: 1.125rem;
@@ -175,9 +164,7 @@ const HeaderWrapper = styled.header`
 
     .light{
         background-color: transparent;
-        #mainIcon{
-            fill: ${theme.veryDarkCyan};
-        }
+        #mainIcon{fill: ${theme.veryDarkCyan}}
 
         nav{
             top: 0;
@@ -185,9 +172,8 @@ const HeaderWrapper = styled.header`
         }
         
         @media (min-width: 1450px) {
-            a{
-                color: ${theme.veryDarkCyan};
-            }
+            a{color: ${theme.veryDarkCyan}}
+
             nav{
                 top: 3.5rem;
                 padding-top: 0;

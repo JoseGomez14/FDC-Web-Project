@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import Point from '../images/Point';
+import Point from '../assets/images/Point';
 import Paragraph from './Paragraph';
 
 /**

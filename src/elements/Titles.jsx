@@ -11,7 +11,7 @@ const H1 = styled.h1`
     position: relative;
     color: ${(props) => props.light ? theme.veryLightGray : '#000'};
     margin-bottom: 1rem;
-    text-shadow: 0.25rem 0.25rem 0.375rem ${theme.veryDarkCyan};
+    text-shadow: 0rem 0rem 0.8rem ${theme.veryDarkCyan};
 `
 
 /**
