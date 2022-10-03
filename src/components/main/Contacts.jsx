@@ -4,10 +4,10 @@ import { ContactButton, Button } from '../../elements/Buttons';
 import { Container, ContainerColumn, ContainerRow } from '../../elements/Containers';
 import Paragraph from '../../elements/Paragraph';
 import { H2 } from '../../elements/Titles';
-import IconFacebook from '../../images/IconFacebook';
-import IconInstagram from '../../images/IconInstagram';
-import IconInaturalist from '../../images/IconInaturalist';
-import IconWts from '../../images/IconWts';
+import IconFacebook from '../../assets/images/IconFacebook';
+import IconInstagram from '../../assets/images/IconInstagram';
+import IconInaturalist from '../../assets/images/IconInaturalist';
+import IconWts from '../../assets/images/IconWts';
 import { ContactForm, ContactInput, ContactTextArea } from '../../elements/ContactForm';
 
 /**
@@ -48,7 +48,7 @@ const Contacts = ({ id }) => {
                     <aside>
                         <Paragraph light>!Escríbenos un correo!</Paragraph>
                         <ContactForm>
-                            <ContactInput type="text" placeholder='Asunto' />
+                            <ContactInput type="text" placeholder='Correo electrónico' />
                             <ContactTextArea name="" id="" cols="30" rows="10" placeholder='Mensaje'></ContactTextArea>
                             <Button type="submit" small><p>Enviar</p></Button>
                         </ContactForm>

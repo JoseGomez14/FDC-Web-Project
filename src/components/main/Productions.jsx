@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, ContainerRow } from '../../elements/Containers';
-import imgProductions from '../../images/productions.png'
+import imgProductions from '../../assets/images/productions.jpg'
 import { H2 } from '../../elements/Titles';
 import Paragraph from '../../elements/Paragraph'
 import {Button} from '../../elements/Buttons'

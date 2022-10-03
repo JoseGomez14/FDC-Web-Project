@@ -3,7 +3,7 @@ import { Container, ContainerRow } from '../../elements/Containers';
 import styled from 'styled-components';
 import Paragraph from '../../elements/Paragraph';
 import { H2 } from '../../elements/Titles';
-import logoFdc from '../../images/logoFDC.png'
+import logoFdc from '../../assets/images/logoFDC.png'
 
 /**
  * Componente encargado de mostrar información para describir lo que es el grupo de investigación FDC

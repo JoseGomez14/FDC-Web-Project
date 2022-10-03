@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Container, ContainerColumn, ContainerRow } from '../../elements/Containers';
 import { H1 } from '../../elements/Titles';
 import Paragraph from '../../elements/Paragraph'
-import imgTeamFDC1 from '../../images/teamFDC1.png'
-import imgTeamFDC2 from '../../images/teamFDC2.png'
-import imgTeamFDC3 from '../../images/teamFDC3.png'
-import iconDown from '../../images/iconDown.png'
+import imgTeamFDC1 from '../../assets/images/teamFDC1.jpg'
+import imgTeamFDC2 from '../../assets/images/teamFDC2.jpg'
+import imgTeamFDC3 from '../../assets/images/teamFDC3.png'
+import iconDown from '../../assets/images/iconDown.png'
 import styled from 'styled-components';
 import { GoDownButton } from '../../elements/Buttons';
 import theme from '../../theme';
