@@ -7,46 +7,28 @@ import App from './App';
 import Navbar from './elements/Navbar';
 import Footer from './elements/Footer';
 import Gallery from './components/gallery/Gallery';
-import Illustrations from './components/illustrations/Illustrations';
 import About from './components/about/About';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Navbar />
+      <Navbar />
       <Routes>
-        <Route
-          path='/'
-          element={
-            <>
-              <App />
-            </>
-          }
+        <Route path='/' element={
+          <>
+            <App />
+          </>}
         />
-        <Route
-          path='/about/:id'
-          element={
-            <>
-              <About />
-            </>
-          }
+        <Route path='/about/:id' element={
+          <>
+            <About />
+          </>}
         />
-        <Route
-          path='/gallery'
-          element={
-            <>
-              <Gallery />
-            </>
-          }
-        />
-        <Route
-          path='/illustrations'
-          element={
-            <>
-              <Illustrations />
-            </>
-          }
+        <Route path='/gallery' element={
+          <>
+            <Gallery />
+          </>}
         />
       </Routes>
       <Footer />
