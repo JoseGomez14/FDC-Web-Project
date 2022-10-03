@@ -29,7 +29,8 @@ const Gallery = () => {
     return (<>
         <Container style={{ paddingTop: '5rem' }}>
             <ContainerColumn style={{ alignItems: 'start' }}>
-                <H2>Galleria</H2>
+                <H2>Especies de nuestro territorio</H2>
+
                 {loadState && <Container><Spinner /></Container>}
 
                 {!loadState && !empty &&
@@ -43,16 +44,10 @@ const Gallery = () => {
                 <ContainerGallery>
                     {!searchState ?
                         species.map((specie, index) => {
-                            return <ItemGallery key={'specie-main' + index}
-                                specie={specie}
-                            />
-                        })
+                            return <ItemGallery specie={specie} key={'specie-main' + index} /> })
                         :
                         filterSpecies.map((specie, index) => {
-                            return <ItemGallery key={'specie-main' + index}
-                                specie={specie}
-                            />
-                        })
+                            return <ItemGallery specie={specie} key={'specie-main' + index} /> })
                     }
                 </ContainerGallery>
 
@@ -63,7 +58,9 @@ const Gallery = () => {
                 {empty &&
                     <article>
                         <h2>¡Vaya! No hay especies registradas por el momento.</h2>
-                        <p>Pero puedes conocer más acerca de <em>Fuera de Contexto</em> <NavLink to={'/'}>!aquí¡</NavLink></p>
+                        <p>Pero puedes conocer más acerca de <em>Fuera de Contexto</em> 
+                            <NavLink to={'/'}>!aquí¡</NavLink>
+                        </p>
                     </article>
                 }
             </ContainerColumn>
