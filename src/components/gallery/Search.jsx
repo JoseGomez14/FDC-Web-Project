@@ -17,244 +17,103 @@ import { faFilter, faSearch } from '@fortawesome/free-solid-svg-icons';
  * permite realizar una consulta avanzada (por características)
  */
 const Search = ({ setSearchState, setFilterSpecies, species }) => {
+   const classes = ["Aves", "Mamíferos", "Reptiles", "Anfibios", "Insectos", "Plantas", "Hongos"];
+   const colors = ["Rojo", "Azul", "Verde", "Amarillo", "Rosa", "Anaranjado", "Morado", "Café", "Gris", "Blanco", "Negro"];
+   const habitats = ["Pradera", "Bosque", "Desierto", "Montaña", "Marisma", "Sabana", "Altiplano", "Quebrada", "Lago", "Pantano", "Río", "Playa"];
 
-    const [advanced, setAdvanced] = useState(false);
-    const [nameSearch, setNameSearch] = useState('');
+   const [advanced, setAdvanced] = useState(false);
+   const [nameSearch, setNameSearch] = useState('');
 
-    /**
-     * Permite establecer el nombre que se está buscando y si existe una consulta válida o no
-     * @param {*} evt información del evento asociado
-     */
-    const handleSearchByName = (evt) => {
-        setNameSearch(evt.target.value)
-        if (evt.target.value === '') {
-            setSearchState(false);
-        }
-    }
+   /**
+    * Permite establecer el nombre que se está buscando y si existe una consulta válida o no
+    * @param {*} evt información del evento asociado
+    */
+   const handleSearchByName = (evt) => {
+      setNameSearch(evt.target.value)
+      
+      if (evt.target.value === '') setSearchState(false);
+   }
 
-    /**
-     * Identifica el tipo de búsqueda y ejecuta la función adecuada según el caso
-     * 
-     * @param {*} evt información del evento asociado
-     */
-    const handleSubmit = (evt) => {
-        evt.preventDefault();
-        if (advanced) {
-            setFilterSpecies(advancedSearch(species, evt));
-        } else {
-            setFilterSpecies(basicSearch(species, nameSearch));
-        }
+   /**
+    * Identifica el tipo de búsqueda y ejecuta la función adecuada según el caso
+    * @param {*} evt información del evento asociado
+    */
+   const handleSubmit = (evt) => {
+      evt.preventDefault();
+      if (advanced) {
+         setFilterSpecies(advancedSearch(species, evt));
+      } else {
+         setFilterSpecies(basicSearch(species, nameSearch));
+      }
 
-        setSearchState(true)
-    }
-    return (
-        <>
-            {!advanced ?
-                <SearchForm onSubmit={handleSubmit}>
-                    <SearchInput
-                        id='inpt-search'
-                        type='search'
-                        placeholder='Nombre de la especie'
-                        value={nameSearch}
-                        onChange={handleSearchByName} />
-                    <SearchButton type='submit' title='Buscar'> <FontAwesomeIcon icon={faSearch} /> </SearchButton>
-                    <SearchButton onClick={() => {
-                        setAdvanced(true)
-                        setSearchState(false)
-                    }}
-                        title='Búsqueda avanzada'
-                    > <FontAwesomeIcon icon={faFilter} /> </SearchButton>
-                </SearchForm>
-                :
-                <SearchForm onSubmit={handleSubmit} column>
-                    <fieldset id='fs-clasification'>
-                        <legend>Clasificación</legend>
-                        <label htmlFor="class-fauna">
-                            <input type="checkbox" name="Fauna" id="class-fauna" />
-                            Fauna
-                        </label>
+      setSearchState(true)
+   }
 
-                        <label htmlFor="class-flora">
-                            <input type="checkbox" name="Flora" id="class-flora" />
-                            Flora
-                        </label>
-                    </fieldset>
+   if (!advanced) {
+      return (
+         <SearchForm onSubmit={handleSubmit}>
+            <SearchInput
+               id='inpt-search' type='search'
+               placeholder='Nombre de la especie'
+               value={nameSearch}
+               onChange={handleSearchByName} />
 
-                    <fieldset id='fs-class'>
-                        <legend>Clase</legend>
-                        <label htmlFor="class-aves">
-                            <input type="checkbox" name="Aves" id="class-aves" />
-                            Aves
-                        </label>
+            <SearchButton type='submit' title='Buscar'> 
+               <FontAwesomeIcon icon={faSearch} />
+            </SearchButton>
 
-                        <label htmlFor="class-mamiferos">
-                            <input type="checkbox" name="Mamíferos" id="class-mamiferos" />
-                            Mamíferos
-                        </label>
+            <SearchButton
+               title='Búsqueda avanzada'
+               onClick={() => {
+                  setAdvanced(true)
+                  setSearchState(false)
+               }}
+            ><FontAwesomeIcon icon={faFilter} /></SearchButton>
+         </SearchForm>
+      );
+   } else {
+      return (
+         <SearchForm onSubmit={handleSubmit} column>
+            <Fieldset title="Clasificación" type='clasification' items={["Fauna", "Flora"]} />
 
-                        <label htmlFor="class-reptiles">
-                            <input type="checkbox" name="Reptiles" id="class-reptiles" />
-                            Reptiles
-                        </label>
+            <Fieldset title="Clase" type='class' items={classes} />
 
-                        <label htmlFor="class-anfibios">
-                            <input type="checkbox" name="Anfibios" id="class-anfibios" />
-                            Anfibios
-                        </label>
+            <Fieldset title="Color del pelaje" type='color' items={colors} />
 
-                        <label htmlFor="class-insectos">
-                            <input type="checkbox" name="Insectos" id="class-insectos" />
-                            Insectos
-                        </label>
+            <Fieldset title="Hábitat" type='habitat' items={habitats} />
 
-                        <label htmlFor="class-plantas">
-                            <input type="checkbox" name="Plantas" id="class-plantas" />
-                            Plantas
-                        </label>
+            <Fieldset title="Estado" type='state' items={["En vía de extinción"]} style={{ width: '12rem' }} />
 
-                        <label htmlFor="class-hongos">
-                            <input type="checkbox" name="Hongos" id="class-hongos" />
-                            Hongos
-                        </label>
-                    </fieldset>
-                    <fieldset id='fs-color'>
-                        <legend>Color del pelaje</legend>
-                        <label htmlFor="color-rojo">
-                            <input type="checkbox" name="Rojo" id="color-rojo" />
-                            Rojo
-                        </label>
-
-                        <label htmlFor="color-azul">
-                            <input type="checkbox" name="Azul" id="color-azul" />
-                            Azul
-                        </label>
-
-                        <label htmlFor="color-verde">
-                            <input type="checkbox" name="Verde" id="color-verde" />
-                            Verde
-                        </label>
-
-                        <label htmlFor="color-amarillo">
-                            <input type="checkbox" name="Amarillo" id="color-amarillo" />
-                            Amarillo
-                        </label>
-
-                        <label htmlFor="color-rosa">
-                            <input type="checkbox" name="Rosa" id="color-rosa" />
-                            Rosa
-                        </label>
-
-                        <label htmlFor="color-anaranjado">
-                            <input type="checkbox" name="Anaranjado" id="color-anaranjado" />
-                            Anaranjado
-                        </label>
-
-                        <label htmlFor="color-morado">
-                            <input type="checkbox" name="Morado" id="color-morado" />
-                            Morado
-                        </label>
-
-                        <label htmlFor="color-cafe">
-                            <input type="checkbox" name="Café" id="color-cafe" />
-                            Café
-                        </label>
-
-                        <label htmlFor="color-gris">
-                            <input type="checkbox" name="Gris" id="color-gris" />
-                            Gris
-                        </label>
-
-                        <label htmlFor="color-blanco">
-                            <input type="checkbox" name="Blanco" id="color-blanco" />
-                            Blanco
-                        </label>
-
-                        <label htmlFor="color-negro">
-                            <input type="checkbox" name="Negro" id="color-negro" />
-                            Negro
-                        </label>
-                    </fieldset>
-                    <fieldset id='fs-habitat'>
-                        <legend>Hábitat</legend>
-                        <label htmlFor="habitat-pradera">
-                            <input type="checkbox" name="Pradera" id="habitat-pradera" />
-                            Pradera
-                        </label>
-
-                        <label htmlFor="habitat-bosque">
-                            <input type="checkbox" name="Bosque" id="habitat-bosque" />
-                            Bosque
-                        </label>
-
-                        <label htmlFor="habitat-desierto">
-                            <input type="checkbox" name="Desierto" id="habitat-desierto" />
-                            Desierto
-                        </label>
-
-                        <label htmlFor="habitat-montana">
-                            <input type="checkbox" name="Montaña" id="habitat-montana" />
-                            Montaña
-                        </label>
-
-                        <label htmlFor="habitat-marisma">
-                            <input type="checkbox" name="Marisma" id="habitat-marisma" />
-                            Marisma
-                        </label>
-
-                        <label htmlFor="habitat-sabana">
-                            <input type="checkbox" name="Sabana" id="habitat-sabana" />
-                            Sabana
-                        </label>
-
-                        <label htmlFor="habitat-altiplano">
-                            <input type="checkbox" name="Altiplano" id="habitat-altiplano" />
-                            Altiplano
-                        </label>
-
-                        <label htmlFor="habitat-quebrada">
-                            <input type="checkbox" name="Quebrada" id="habitat-quebrada" />
-                            Quebrada
-                        </label>
-
-                        <label htmlFor="habitat-lago">
-                            <input type="checkbox" name="Lago" id="habitat-lago" />
-                            Lago
-                        </label>
-
-                        <label htmlFor="habitat-pantano">
-                            <input type="checkbox" name="Pantano" id="habitat-pantano" />
-                            Pantano
-                        </label>
-
-                        <label htmlFor="habitat-rio">
-                            <input type="checkbox" name="Río" id="habitat-rio" />
-                            Río
-                        </label>
-
-                        <label htmlFor="habitat-playa">
-                            <input type="checkbox" name="Playa" id="habitat-playa" />
-                            Playa
-                        </label>
-
-                    </fieldset>
-                    <fieldset id='fs-state'>
-                        <legend>Estado</legend>
-                        <label htmlFor="state-extinction" style={{ width: '12rem' }}>
-                            <input type="checkbox" name="extinction" id="state-extinction" />
-                            En vía de extinción
-                        </label>
-                    </fieldset>
-                    <div>
-                        <SearchButton type='submit' style={{marginRight: '0.5rem'}}>Filtrar</SearchButton>
-                        <SearchButton onClick={() => {
-                            setAdvanced(false)
-                            setSearchState(false)
-                        }}>Búsqueda por nombre</SearchButton>
-                    </div>
-                </SearchForm>}
-
-        </>
-    );
+            <div>
+               <SearchButton type='submit' style={{ marginRight: '0.5rem' }}>Filtrar</SearchButton>
+               <SearchButton onClick={() => {
+                  setAdvanced(false)
+                  setSearchState(false)
+               }}>Búsqueda por nombre</SearchButton>
+            </div>
+         </SearchForm>
+      );
+   }
 }
+
+/**
+ * Coponente que permite generar las posibilidades de filtrado dado un arreglo de elementos
+ * @param {*} items conjunto de elementos posibles para el filtro por categoría
+ * @param {*} type tipo de categoría
+ * @param {*} title titulo de la categoría a filtrar
+ * @returns componente fieldset e inputs
+ */
+const Fieldset = ({ items, type, title, style }) => (
+   <fieldset id={"fs-" + type}>
+      <legend>{title}</legend>
+      {items.map((item) => {
+         return (<label htmlFor={type + "-" + item} key={"form-" + type + "-" + item} style={style}>
+            <input type="checkbox" name={item} id={type + "-" + item} />
+            {item}
+         </label>
+         );
+      })}
+   </fieldset>
+)
 
 export default Search;
