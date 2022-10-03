@@ -16,21 +16,21 @@ const ItemGallery = ({ specie }) => {
     return (
         <GridItemGallery>
             <figure onClick={() => setPopUpState(true)}>
-                <img src={specie.images[0]} alt={specie.commonName} width='400px'></img>
+                <img src={specie.images[0]} alt={specie.commonName} width='400px' loading='lazy'></img>
                 <figcaption hidden>{specie.description}</figcaption>
+
                 <Article onClick={() => setPopUpState(true)} className='specieInfo'>
-                    <IconClass className={specie.className} height='50px' />
-                    <h1>{specie.commonName}</h1>
-                    <p><i>{specie.scientificName}</i></p>
+                    <aside>
+                        <h1>{specie.commonName}</h1>
+                        <p><i>{specie.scientificName}</i></p>
+                    </aside>
+                    <IconClass className={specie.className} height='2.375rem' width='2.375rem' fill='#f4f4f4'/>
                 </Article>
             </figure>
 
             {popUpState &&
                 <ContainerFloat>
-                    <About
-                        idSpecie={specie.id}
-                        setPopUpState={setPopUpState}
-                    />
+                    <About idSpecie={specie.id} setPopUpState={setPopUpState}/>
                 </ContainerFloat>
             }
         </GridItemGallery>
@@ -38,12 +38,18 @@ const ItemGallery = ({ specie }) => {
 }
 
 const Article = styled.article`
-    padding-left: 1rem;
+    padding: 0 1rem;
     cursor: pointer;
     color: ${theme.veryLightGray};
-    text-shadow: 1px 1px 2px ${theme.mostlyBlack};
+    text-shadow: 0px 0px 3px ${theme.mostlyBlack};
+    position: relative;
+    bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
     h1{
-        font-size: 1rem;
+        font-size: 1.25rem;
+        font-weight: 500;
+        line-height: 1.5rem;
     }
     p{
         font-size: 0.9rem;
