@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/main/AboutUs.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/main/AboutUs.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import { Container, ContainerRow } from '../../elements/Containers';
+import styled from 'styled-components';
+import Paragraph from '../../elements/Paragraph';
+import { H2 } from '../../elements/Titles';
+import logoFdc from '../../assets/images/logoFDC.png'
+
+/**
+ * Componente encargado de mostrar información para describir lo que es el grupo de investigación FDC
+ * @param {*} id id del contenido 
+ * @returns sección de contenido que describe lo que es FDC
+ */
+const AboutUs = ({ id }) => {
+    return (&lt;Container id={id}>
+        &lt;ContainerRow>
+            &lt;aside>
+                &lt;H2>Acerca de Nosotros&lt;/H2>
+
+                &lt;Paragraph>Somos un grupo de investigación &lt;em>ONDAS&lt;/em> de la Institución Educativa Técnico Industrial Tomás Carrasquilla del municipio de Santo Domingo, Antioquia, Colombia. El grupo está conformado por 20 estudiantes de grados entre 9° a 11°.&lt;/Paragraph>
+
+                &lt;Paragraph>El título de nuestro proyecto es &lt;em>caracterizar la fauna del municipio de Santo Domingo, Antioquia a partir de la pregunta ¿Cuáles son las especies de fauna presentes en el municipio de Santo Domingo? El grupo adquiere el compromiso de identificar las especies de fauna presentes en el municipio para educar en una cultura de cuidado y preservación de las especies y del medio ambiente mediante el conocimiento, identificación y familiarización.&lt;/em>&lt;/Paragraph>
+            &lt;/aside>
+            &lt;aside>
+                &lt;Img src={logoFdc} alt="Logo - Fuera de Contexto" />
+            &lt;/aside>
+        &lt;/ContainerRow>
+    &lt;/Container>);
+}
+
+/**
+ * Logo estilizado del grupo FDC 
+ */
+const Img = styled.img`
+    width: 75%;
+
+    @media (max-width: 1325px) {
+        width: 90%;
+    }
+
+    @media (max-width: 1100px) {
+        width: 100%;
+    }
+`
+
+export default AboutUs;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#About">About</a></li><li><a href="global.html#AboutUs">AboutUs</a></li><li><a href="global.html#advancedSearch">advancedSearch</a></li><li><a href="global.html#Allies">Allies</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#Aside">Aside</a></li><li><a href="global.html#AsideLeft">AsideLeft</a></li><li><a href="global.html#AsideRight">AsideRight</a></li><li><a href="global.html#BackButton">BackButton</a></li><li><a href="global.html#basicSearch">basicSearch</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#ContactButton">ContactButton</a></li><li><a href="global.html#ContactForm">ContactForm</a></li><li><a href="global.html#ContactInput">ContactInput</a></li><li><a href="global.html#Contacts">Contacts</a></li><li><a href="global.html#ContactTextArea">ContactTextArea</a></li><li><a href="global.html#Container">Container</a></li><li><a href="global.html#ContainerC">ContainerC</a></li><li><a href="global.html#ContainerColumn">ContainerColumn</a></li><li><a href="global.html#ContainerFloat">ContainerFloat</a></li><li><a href="global.html#ContainerGallery">ContainerGallery</a></li><li><a href="global.html#ContainerGrid">ContainerGrid</a></li><li><a href="global.html#ContainerRow">ContainerRow</a></li><li><a href="global.html#ContainerSlider">ContainerSlider</a></li><li><a href="global.html#Fieldset">Fieldset</a></li><li><a href="global.html#firebaseConfig">firebaseConfig</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#FWIcon">FWIcon</a></li><li><a href="global.html#Gallery">Gallery</a></li><li><a href="global.html#GoDownButton">GoDownButton</a></li><li><a href="global.html#GridItem">GridItem</a></li><li><a href="global.html#GridItemGallery">GridItemGallery</a></li><li><a href="global.html#H1">H1</a></li><li><a href="global.html#H2">H2</a></li><li><a href="global.html#H3">H3</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HeaderWrapper">HeaderWrapper</a></li><li><a href="global.html#History">History</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#IconClass">IconClass</a></li><li><a href="global.html#IconFacebook">IconFacebook</a></li><li><a href="global.html#IconFDC">IconFDC</a></li><li><a href="global.html#IconInaturalist">IconInaturalist</a></li><li><a href="global.html#IconInstagram">IconInstagram</a></li><li><a href="global.html#IconTwitter">IconTwitter</a></li><li><a href="global.html#Img">Img</a></li><li><a href="global.html#ItemGallery">ItemGallery</a></li><li><a href="global.html#LearnMore">LearnMore</a></li><li><a href="global.html#List">List</a></li><li><a href="global.html#ListItem">ListItem</a></li><li><a href="global.html#MenuButton">MenuButton</a></li><li><a href="global.html#MenuButtonWrapper">MenuButtonWrapper</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NavbarWrapper">NavbarWrapper</a></li><li><a href="global.html#Objetives">Objetives</a></li><li><a href="global.html#Paragraph">Paragraph</a></li><li><a href="global.html#Point">Point</a></li><li><a href="global.html#Productions">Productions</a></li><li><a href="global.html#Search">Search</a></li><li><a href="global.html#SearchButton">SearchButton</a></li><li><a href="global.html#SearchForm">SearchForm</a></li><li><a href="global.html#SearchInput">SearchInput</a></li><li><a href="global.html#shine">shine</a></li><li><a href="global.html#Slider">Slider</a></li><li><a href="global.html#TimeLine">TimeLine</a></li><li><a href="global.html#useGetSpecie">useGetSpecie</a></li><li><a href="global.html#useGetSpecies">useGetSpecies</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Mon Oct 03 2022 13:30:43 GMT-0500 (hora estándar de Colombia)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

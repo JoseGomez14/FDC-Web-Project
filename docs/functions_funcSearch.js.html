@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: functions/funcSearch.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: functions/funcSearch.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Se encarga de identificar las especies que poseen en su nombre común o en su nombre
+ * cientifico una palabra o una frase.
+ * 
+ * Nota: se realiza un formateo de mayúsculas y de acentos para que la búsqueda no se 
+ * vea afectada.
+ * 
+ * @param {object} species conjunto de especies a filtrar
+ * @param {string} word palabra búscada
+ * @returns Conjunto de especies que en su nombre poseen la palabra buscada
+ */
+const basicSearch = (species, word) => {
+    let arrSpecies = []
+
+    species.forEach(specie => {
+        let commonName = specie.commonName.toLowerCase()
+        commonName = commonName.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+
+        let scientificName = specie.scientificName.toLowerCase()
+        scientificName = scientificName.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+        
+        let wordSearch = word.toLowerCase();
+        wordSearch = wordSearch.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+        
+        if (commonName.search(wordSearch) !== -1 || scientificName.search(wordSearch) !== -1) {
+            arrSpecies.push(specie);
+        }
+    });
+
+    return arrSpecies;
+}
+
+/**
+ * Esta función se encarga de filtrar un conjunto de especies dadas unas características establecidas
+ * en un formulario de filtros
+ * 
+ * @param {*} species conjunto de especies a filtrar
+ * @param {*} evt información del evento asociado (submit en el formulario)
+ * @returns conjunto de especies que cumplen con al menos una de las características solicitadas
+ */
+const advancedSearch = (species, evt) =>{
+    let arrSpecies = []
+    let stateFilter = false;
+
+    evt.target.childNodes.forEach(node => {
+        if(node.nodeName === 'FIELDSET'){
+            node.childNodes.forEach(childNode => {
+                if(childNode.nodeName === 'LABEL' &amp;&amp; childNode.childNodes[0].checked){
+                    stateFilter = true;
+                    species.forEach(specie => {
+                        let nameInput =  childNode.childNodes[0].name
+                        switch (node.id) {
+                            case 'fs-clasification':
+                                if(specie.kingdom === nameInput) arrSpecies.push(specie)
+                                break;
+                            case 'fs-class':
+                                if(specie.className === nameInput) arrSpecies.push(specie)
+                                break;
+                            case 'fs-color':
+                                if(specie.skinColor === nameInput) arrSpecies.push(specie)
+                                break;
+                            case 'fs-habitat':
+                                if(specie.habitat === nameInput) arrSpecies.push(specie)
+                                break;
+                            case 'fs-state':
+                                if(specie.state === childNode.childNodes[0].checked) arrSpecies.push(specie)
+                                break;
+                            default:
+                                break;
+                        } 
+                    });
+                }
+            });
+        }
+    });
+
+    const arrSpeciesReduce = arrSpecies.reduce((specie, item)=>{
+        if(!specie.includes(item)){
+            specie.push(item);
+        }
+        return specie;
+    },[])
+
+    return stateFilter? arrSpeciesReduce: species;
+}
+
+export {basicSearch, advancedSearch}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#About">About</a></li><li><a href="global.html#AboutUs">AboutUs</a></li><li><a href="global.html#advancedSearch">advancedSearch</a></li><li><a href="global.html#Allies">Allies</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#Aside">Aside</a></li><li><a href="global.html#AsideLeft">AsideLeft</a></li><li><a href="global.html#AsideRight">AsideRight</a></li><li><a href="global.html#BackButton">BackButton</a></li><li><a href="global.html#basicSearch">basicSearch</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#ContactButton">ContactButton</a></li><li><a href="global.html#ContactForm">ContactForm</a></li><li><a href="global.html#ContactInput">ContactInput</a></li><li><a href="global.html#Contacts">Contacts</a></li><li><a href="global.html#ContactTextArea">ContactTextArea</a></li><li><a href="global.html#Container">Container</a></li><li><a href="global.html#ContainerC">ContainerC</a></li><li><a href="global.html#ContainerColumn">ContainerColumn</a></li><li><a href="global.html#ContainerFloat">ContainerFloat</a></li><li><a href="global.html#ContainerGallery">ContainerGallery</a></li><li><a href="global.html#ContainerGrid">ContainerGrid</a></li><li><a href="global.html#ContainerRow">ContainerRow</a></li><li><a href="global.html#ContainerSlider">ContainerSlider</a></li><li><a href="global.html#Fieldset">Fieldset</a></li><li><a href="global.html#firebaseConfig">firebaseConfig</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#FWIcon">FWIcon</a></li><li><a href="global.html#Gallery">Gallery</a></li><li><a href="global.html#GoDownButton">GoDownButton</a></li><li><a href="global.html#GridItem">GridItem</a></li><li><a href="global.html#GridItemGallery">GridItemGallery</a></li><li><a href="global.html#H1">H1</a></li><li><a href="global.html#H2">H2</a></li><li><a href="global.html#H3">H3</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HeaderWrapper">HeaderWrapper</a></li><li><a href="global.html#History">History</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#IconClass">IconClass</a></li><li><a href="global.html#IconFacebook">IconFacebook</a></li><li><a href="global.html#IconFDC">IconFDC</a></li><li><a href="global.html#IconInaturalist">IconInaturalist</a></li><li><a href="global.html#IconInstagram">IconInstagram</a></li><li><a href="global.html#IconTwitter">IconTwitter</a></li><li><a href="global.html#Img">Img</a></li><li><a href="global.html#ItemGallery">ItemGallery</a></li><li><a href="global.html#LearnMore">LearnMore</a></li><li><a href="global.html#List">List</a></li><li><a href="global.html#ListItem">ListItem</a></li><li><a href="global.html#MenuButton">MenuButton</a></li><li><a href="global.html#MenuButtonWrapper">MenuButtonWrapper</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NavbarWrapper">NavbarWrapper</a></li><li><a href="global.html#Objetives">Objetives</a></li><li><a href="global.html#Paragraph">Paragraph</a></li><li><a href="global.html#Point">Point</a></li><li><a href="global.html#Productions">Productions</a></li><li><a href="global.html#Search">Search</a></li><li><a href="global.html#SearchButton">SearchButton</a></li><li><a href="global.html#SearchForm">SearchForm</a></li><li><a href="global.html#SearchInput">SearchInput</a></li><li><a href="global.html#shine">shine</a></li><li><a href="global.html#Slider">Slider</a></li><li><a href="global.html#TimeLine">TimeLine</a></li><li><a href="global.html#useGetSpecie">useGetSpecie</a></li><li><a href="global.html#useGetSpecies">useGetSpecies</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Mon Oct 03 2022 13:30:43 GMT-0500 (hora estándar de Colombia)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

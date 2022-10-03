@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/main/Home.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/main/Home.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react';
+import { Container, ContainerColumn, ContainerRow } from '../../elements/Containers';
+import { H1 } from '../../elements/Titles';
+import Paragraph from '../../elements/Paragraph'
+import imgTeamFDC1 from '../../assets/images/teamFDC1.jpg'
+import imgTeamFDC2 from '../../assets/images/teamFDC2.jpg'
+import imgTeamFDC3 from '../../assets/images/teamFDC3.png'
+import iconDown from '../../assets/images/iconDown.png'
+import styled from 'styled-components';
+import { GoDownButton } from '../../elements/Buttons';
+import theme from '../../theme';
+
+/**
+ * Componente encargado de mostrar la presentación inicial del sitio web, imagen, título, frase y forma de avanzar al siguiente punto del sitio
+ * @param {*} id id del contenido 
+ * @returns sección de bienvenida al sitio
+ */
+const Home = ({ id }) => {
+    const teamImages = [imgTeamFDC1, imgTeamFDC2, imgTeamFDC3]
+    const [contImg, setContImg] = useState(0);
+
+    useEffect(() => {
+        setTimeout(() => {
+            (contImg &lt; teamImages.length - 1) ? setContImg(contImg + 1) : setContImg(0)
+        }, 4000)
+    }, [contImg, teamImages.length])
+
+    return (&lt;ContainerC dark id={id} image={teamImages[contImg]}>
+        &lt;ContainerColumn>
+            &lt;aside>
+                &lt;ContainerRow>
+                    &lt;aside>
+                        &lt;H1 light style={{ letterSpacing: '0.1rem', marginTop: '4rem' }}>Fuera De&lt;/H1>
+                        &lt;H1 light>Contexto&lt;/H1>
+                        &lt;Paragraph light shadow style={{ fontSize: '1.8rem' }}>&lt;em>"Investigadores de lo nuestro"&lt;/em>&lt;/Paragraph>
+                    &lt;/aside>
+                    &lt;aside>&lt;/aside>
+                &lt;/ContainerRow>
+            &lt;/aside>
+            &lt;aside>
+                &lt;GoDownButton onClick={() => {
+                    let sliderHeight = document.getElementById(id).clientHeight;
+                    window.scrollTo({ top: sliderHeight - 48 })
+                }}>
+                    &lt;img src={iconDown} alt="" />
+                &lt;/GoDownButton>
+            &lt;/aside>
+        &lt;/ContainerColumn>
+        &lt;div id='circle1'>&lt;/div>
+        &lt;div id='circle2'>&lt;/div>
+        &lt;div id='circle3'>&lt;/div>
+    &lt;/ContainerC>);
+}
+
+/**
+ * Contendor estilizado - permite distribuir el contenido de la pantalla inicial
+ * Tmabién contiene estilo de uno elementos circulares que permiten adornar la imagen,
+ * que además se adaptan según el tamaño del dispositivo
+ * 
+ * Media Query: 535px
+ */
+const ContainerC = styled(Container)`
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    min-height: 100vh;
+    div{
+        border-radius: 100%;
+        position: absolute;
+    }
+
+    article{
+        position: relative;
+        top: 0;
+    }
+
+    #circle1{
+        width: 20rem;
+        height: 20rem;
+        background-color: ${theme.darkCyan};
+        bottom: -12rem;
+        right: -5rem;
+    }
+    #circle2{
+        width: 23rem;
+        height: 23rem;
+        background-color: ${theme.veryDarkCyan};
+        bottom: 0rem;
+        right: -18rem;
+    }
+    #circle3{
+        width: 10rem;
+        height: 10rem;
+        background-color: ${theme.softGreen};
+        bottom: 3rem;
+        right: 3rem;
+    }
+
+    @media (max-width: 535px) {
+        #circle1{
+            bottom: -15rem;
+            right: -8rem;
+        }
+        #circle2{
+            bottom: -3rem;
+            right: -20rem;
+        }
+        #circle3{
+            width: 7rem;
+            height: 7rem;
+            bottom: 2rem;
+            right: 1rem;
+        }
+    }
+`
+
+export default Home;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#About">About</a></li><li><a href="global.html#AboutUs">AboutUs</a></li><li><a href="global.html#advancedSearch">advancedSearch</a></li><li><a href="global.html#Allies">Allies</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#Aside">Aside</a></li><li><a href="global.html#AsideLeft">AsideLeft</a></li><li><a href="global.html#AsideRight">AsideRight</a></li><li><a href="global.html#BackButton">BackButton</a></li><li><a href="global.html#basicSearch">basicSearch</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#ContactButton">ContactButton</a></li><li><a href="global.html#ContactForm">ContactForm</a></li><li><a href="global.html#ContactInput">ContactInput</a></li><li><a href="global.html#Contacts">Contacts</a></li><li><a href="global.html#ContactTextArea">ContactTextArea</a></li><li><a href="global.html#Container">Container</a></li><li><a href="global.html#ContainerC">ContainerC</a></li><li><a href="global.html#ContainerColumn">ContainerColumn</a></li><li><a href="global.html#ContainerFloat">ContainerFloat</a></li><li><a href="global.html#ContainerGallery">ContainerGallery</a></li><li><a href="global.html#ContainerGrid">ContainerGrid</a></li><li><a href="global.html#ContainerRow">ContainerRow</a></li><li><a href="global.html#ContainerSlider">ContainerSlider</a></li><li><a href="global.html#Fieldset">Fieldset</a></li><li><a href="global.html#firebaseConfig">firebaseConfig</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#FWIcon">FWIcon</a></li><li><a href="global.html#Gallery">Gallery</a></li><li><a href="global.html#GoDownButton">GoDownButton</a></li><li><a href="global.html#GridItem">GridItem</a></li><li><a href="global.html#GridItemGallery">GridItemGallery</a></li><li><a href="global.html#H1">H1</a></li><li><a href="global.html#H2">H2</a></li><li><a href="global.html#H3">H3</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HeaderWrapper">HeaderWrapper</a></li><li><a href="global.html#History">History</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#IconClass">IconClass</a></li><li><a href="global.html#IconFacebook">IconFacebook</a></li><li><a href="global.html#IconFDC">IconFDC</a></li><li><a href="global.html#IconInaturalist">IconInaturalist</a></li><li><a href="global.html#IconInstagram">IconInstagram</a></li><li><a href="global.html#IconTwitter">IconTwitter</a></li><li><a href="global.html#Img">Img</a></li><li><a href="global.html#ItemGallery">ItemGallery</a></li><li><a href="global.html#LearnMore">LearnMore</a></li><li><a href="global.html#List">List</a></li><li><a href="global.html#ListItem">ListItem</a></li><li><a href="global.html#MenuButton">MenuButton</a></li><li><a href="global.html#MenuButtonWrapper">MenuButtonWrapper</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NavbarWrapper">NavbarWrapper</a></li><li><a href="global.html#Objetives">Objetives</a></li><li><a href="global.html#Paragraph">Paragraph</a></li><li><a href="global.html#Point">Point</a></li><li><a href="global.html#Productions">Productions</a></li><li><a href="global.html#Search">Search</a></li><li><a href="global.html#SearchButton">SearchButton</a></li><li><a href="global.html#SearchForm">SearchForm</a></li><li><a href="global.html#SearchInput">SearchInput</a></li><li><a href="global.html#shine">shine</a></li><li><a href="global.html#Slider">Slider</a></li><li><a href="global.html#TimeLine">TimeLine</a></li><li><a href="global.html#useGetSpecie">useGetSpecie</a></li><li><a href="global.html#useGetSpecies">useGetSpecies</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Mon Oct 03 2022 13:30:43 GMT-0500 (hora estándar de Colombia)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

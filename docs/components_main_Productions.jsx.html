@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/main/Productions.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/main/Productions.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react'
+import { Container, ContainerRow } from '../../elements/Containers';
+import imgProductions from '../../assets/images/productions.jpg'
+import { H2 } from '../../elements/Titles';
+import Paragraph from '../../elements/Paragraph'
+import {Button} from '../../elements/Buttons'
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+
+/**
+ * Componente encargado de mostrar información de las producciones del grupo y la posibilidad de navegar a la gallería de producciones
+ * @param {*} id id del contenido 
+ * @returns sección conocimiento de las producciones
+ */
+const Productions = ({id}) => {
+    return ( &lt;Container dark id={id} image={imgProductions}>
+        &lt;ContainerRow>
+            &lt;aside>
+
+            &lt;/aside>
+            &lt;Aside>
+                &lt;H2 light>Producciones&lt;/H2>
+                &lt;Paragraph light>Diseñamos una colección que contiene las especies de fauna del municipio de Santo Domingo con registros fotográficos plasmados en ella, el nombre común y científico de la especie y algunas características que permitan conocer el estilo de vida o maneras de comportamiento biológico de algunas familias, géneros o especies. También hacemos uso de redes sociales, en donde se publican fotografías con sus respectivos nombres (común y científico) con el fin de generar interacción con la comunidad que utilice las nuevas tecnologías.&lt;/Paragraph>
+                
+                &lt;Paragraph light>En las salidas de campo que realizamos, además de obtener registros fotográficos, también se graban sonidos de las especies, los cuales son divulgados a la comunidad a través de nuestro sitio Web.&lt;/Paragraph>
+                
+                &lt;Paragraph light>Al tener en cuenta que en algunos registros fotográficos no se pueden obtener algunos detalles de la naturaleza o que no se pueden plasmar ciertos procesos, en el grupo de investigación recurrimos a la ilustración científica mediante los integrantes del proyecto, para luego involucrar a otras personas como artistas y niños y adolescentes estudiantes.&lt;/Paragraph>
+                &lt;br/>
+                &lt;LearnMore as={NavLink} to='/gallery' light='true'>!Conoce más💚¡&lt;/LearnMore>
+            &lt;/Aside>
+        &lt;/ContainerRow>
+    &lt;/Container> );
+}
+
+/**
+ * Estilos para el botón de "Conocer más"
+ */
+const LearnMore = styled(Button)`
+    text-decoration: none;
+    padding: 0.725rem 20%;
+    color: black;
+    font-size: 1.8rem;
+    font-weight: 600;
+
+    &amp;:hover{
+        font-size: 1.9rem;
+    }
+`
+
+/**
+ * Elemento estilizado que agrega un fondo en pantallas de tamaño medio e inferior para mejorar la visibilidad
+ * del texto
+ */
+const Aside = styled.aside`
+    @media (max-width: 1000px) {
+        background: rgba(0, 70, 81, 0.5);
+        padding: 15% 5%;
+        border-radius: 0.5rem;
+        backdrop-filter: blur(5px);
+    }
+` 
+export default Productions;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#About">About</a></li><li><a href="global.html#AboutUs">AboutUs</a></li><li><a href="global.html#advancedSearch">advancedSearch</a></li><li><a href="global.html#Allies">Allies</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#Aside">Aside</a></li><li><a href="global.html#AsideLeft">AsideLeft</a></li><li><a href="global.html#AsideRight">AsideRight</a></li><li><a href="global.html#BackButton">BackButton</a></li><li><a href="global.html#basicSearch">basicSearch</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#ContactButton">ContactButton</a></li><li><a href="global.html#ContactForm">ContactForm</a></li><li><a href="global.html#ContactInput">ContactInput</a></li><li><a href="global.html#Contacts">Contacts</a></li><li><a href="global.html#ContactTextArea">ContactTextArea</a></li><li><a href="global.html#Container">Container</a></li><li><a href="global.html#ContainerC">ContainerC</a></li><li><a href="global.html#ContainerColumn">ContainerColumn</a></li><li><a href="global.html#ContainerFloat">ContainerFloat</a></li><li><a href="global.html#ContainerGallery">ContainerGallery</a></li><li><a href="global.html#ContainerGrid">ContainerGrid</a></li><li><a href="global.html#ContainerRow">ContainerRow</a></li><li><a href="global.html#ContainerSlider">ContainerSlider</a></li><li><a href="global.html#Fieldset">Fieldset</a></li><li><a href="global.html#firebaseConfig">firebaseConfig</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#FWIcon">FWIcon</a></li><li><a href="global.html#Gallery">Gallery</a></li><li><a href="global.html#GoDownButton">GoDownButton</a></li><li><a href="global.html#GridItem">GridItem</a></li><li><a href="global.html#GridItemGallery">GridItemGallery</a></li><li><a href="global.html#H1">H1</a></li><li><a href="global.html#H2">H2</a></li><li><a href="global.html#H3">H3</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HeaderWrapper">HeaderWrapper</a></li><li><a href="global.html#History">History</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#IconClass">IconClass</a></li><li><a href="global.html#IconFacebook">IconFacebook</a></li><li><a href="global.html#IconFDC">IconFDC</a></li><li><a href="global.html#IconInaturalist">IconInaturalist</a></li><li><a href="global.html#IconInstagram">IconInstagram</a></li><li><a href="global.html#IconTwitter">IconTwitter</a></li><li><a href="global.html#Img">Img</a></li><li><a href="global.html#ItemGallery">ItemGallery</a></li><li><a href="global.html#LearnMore">LearnMore</a></li><li><a href="global.html#List">List</a></li><li><a href="global.html#ListItem">ListItem</a></li><li><a href="global.html#MenuButton">MenuButton</a></li><li><a href="global.html#MenuButtonWrapper">MenuButtonWrapper</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NavbarWrapper">NavbarWrapper</a></li><li><a href="global.html#Objetives">Objetives</a></li><li><a href="global.html#Paragraph">Paragraph</a></li><li><a href="global.html#Point">Point</a></li><li><a href="global.html#Productions">Productions</a></li><li><a href="global.html#Search">Search</a></li><li><a href="global.html#SearchButton">SearchButton</a></li><li><a href="global.html#SearchForm">SearchForm</a></li><li><a href="global.html#SearchInput">SearchInput</a></li><li><a href="global.html#shine">shine</a></li><li><a href="global.html#Slider">Slider</a></li><li><a href="global.html#TimeLine">TimeLine</a></li><li><a href="global.html#useGetSpecie">useGetSpecie</a></li><li><a href="global.html#useGetSpecies">useGetSpecies</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Mon Oct 03 2022 13:30:43 GMT-0500 (hora estándar de Colombia)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
