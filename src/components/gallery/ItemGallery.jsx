@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { GridItemGallery, ContainerFloat } from '../../elements/Containers';
 import IconClass from '../../elements/IconClass';
 import theme from '../../theme';
-import About from '../about/About';
+import Specie from '../about/Specie';
 
 /**
  * Muestra el resumen de una especie dado el objeto que contiene su información
@@ -24,13 +24,13 @@ const ItemGallery = ({ specie }) => {
                         <h1>{specie.commonName}</h1>
                         <p><i>{specie.scientificName}</i></p>
                     </aside>
-                    <IconClass className={specie.className} height='2.375rem' width='2.375rem' fill='#f4f4f4'/>
+                    <IconClass className={specie.className} height='2.375rem' width='2.375rem' fill='#f4f4f4' />
                 </Article>
             </figure>
 
             {popUpState &&
                 <ContainerFloat>
-                    <About idSpecie={specie.id} setPopUpState={setPopUpState}/>
+                    <Specie specie={specie} setPopUpState={setPopUpState} />
                 </ContainerFloat>
             }
         </GridItemGallery>
