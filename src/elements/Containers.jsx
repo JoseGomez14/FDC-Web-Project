@@ -60,21 +60,10 @@ const ContainerRow = styled.article`
 const ContainerGrid = styled.div`
     width: 100%;
     display: grid;
-    overflow-x: auto;
-    grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
+    grid-gap: ${(props) => props.gallery? '1.5rem': '1rem'};
+    grid-template-columns: ${(props) => props.gallery? 'repeat(auto-fill, minmax(min(100%, 22rem), 1fr))':
+        'repeat(auto-fill, minmax(min(100%, 10rem), 1fr))'};
     grid-auto-flow: dense;
-    transition: all 0.3s ease-in-out;
-`
-
-/**
- * Contenedor grid que distribuye los elementos automáticamente según el tamaño de la pantalla
- */
-const ContainerGallery = styled.div`
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
-    gap: 1.5rem;
 `
 
 /** 
@@ -124,13 +113,13 @@ const GridItemGallery = styled.div`
         cursor: pointer;
         width: 100%;
         height: 100%;
-        transition: all 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out;
         img{
             border-radius: 0.8rem;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: 0% 0%;
+            object-position: 50% 50%;
             background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
             background-size: 200% 100%;
             animation: 1.5s ${shine} linear infinite;
@@ -138,11 +127,6 @@ const GridItemGallery = styled.div`
 
         &:hover{
             transform: scale(1.025);
-        }
-
-        .specieInfo{
-            position: relative;
-            bottom: 3.3rem;
         }
     }
 `
@@ -160,52 +144,33 @@ const ContainerFloat = styled.div`
     z-index: 30;
     background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(5px);
-    padding: 2rem 4rem;
-
-    section{
-        height: 100%;
-        min-height: 100%;
-        overflow-y: scroll;
-        position: relative;
-        background-color: ${theme.veryLightGray};
-        border-radius: 0.8rem;
-        padding: 15% 0;
-        padding-bottom: 2rem;
-    }
-
-    @media (max-width: 585px) {
-        section{
-            padding: 40% 3%;
-        }
-    }
+    padding: 2rem min(4%, 4rem);
 `
 
 /**
  * Contenedor tipo flex para slider
  */
 const ContainerSlider = styled.div`
-.swiper {
-    width: 600px;
-    height: 400px;
+  .swiper {   
+    width: min(900px, 100%);
+    height: 100%;
     border-radius: 0.8rem;
+    margin-bottom: 1.5rem;
   }
   
   .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-  
+    height: auto;
+    max-height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0.8rem;
+
+    img{
+     width: 100%;
+     height: auto;
+     border-radius: 0.8rem;
+    }
   }
 `
 
-export { Container, ContainerColumn, ContainerRow, ContainerGrid, ContainerGallery, GridItem, GridItemGallery, ContainerFloat, ContainerSlider };
+export { Container, ContainerColumn, ContainerRow, ContainerGrid, GridItem, GridItemGallery, ContainerFloat, ContainerSlider };

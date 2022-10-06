@@ -44,7 +44,8 @@ const Button = styled.button`
     width: ${(props) => props.small? '30%' : '60%'};
     min-width: ${(props) => props.small? '30%' : '20rem'};
     padding: 0.5rem;
-    transition: all 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+    transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
     border: none;
 
     p{
@@ -55,8 +56,6 @@ const Button = styled.button`
 
     &:hover{
         transform: scale(1.05);
-        transition: all 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
-        cursor: pointer;
     }
 `
 
@@ -68,10 +67,10 @@ const MenuButtonWrapper = styled.button`
   display: block;
   background-color: transparent;
   cursor: pointer;
-  transition: all 0.5s linear;
+  transition: transform 0.5s linear;
+
   &:hover{
     transform: scale(1.1);
-    transition: all 0.5s linear;
   }
   @media (min-width: 1450px) {
     display: none;
@@ -84,7 +83,8 @@ const MenuButtonWrapper = styled.button`
 const GoDownButton = styled.button`
   background: transparent;
   border: none;
-  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
   margin-top: 8rem;
   img{
     width: 4rem;
@@ -92,7 +92,6 @@ const GoDownButton = styled.button`
 
   &:hover{
     transform: scale(1.1);
-    cursor: pointer;
   }
 `
 
@@ -126,14 +125,15 @@ function MenuButton({ open, handleClick }) {
  */
 const BackButton = styled.button`
   position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
+  top: 1rem;
+  left: 1rem;
   font-size: 1.5rem;
   line-height: 1.5rem;
   padding: 0.5rem 0.6rem;
   border-radius: 3rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  z-index: 35;
 
   &:hover{
     transform: scale(1.05);
