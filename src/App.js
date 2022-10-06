@@ -3,7 +3,6 @@ import Allies from './components/main/Allies';
 import Objetives from './components/main/Objectives';
 import Productions from './components/main/Productions';
 import History from './components/main/History';
-import Contacts from './components/main/Contacts';
 import Home from './components/main/Home';
 
 /**
@@ -26,8 +25,6 @@ function App() {
       <Allies id='allies'/>
 
       <History id='history'/>
-
-      <Contacts id='contact'/>
     </main>
   );
 }
