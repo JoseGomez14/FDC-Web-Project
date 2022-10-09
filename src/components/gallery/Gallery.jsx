@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import useGetSpecies from '../../hooks/useGetSpecies';
+import MetaTags from '../main/MetaTags';
 import ItemGallery from './ItemGallery';
 import Search from './Search';
 import { Container, ContainerColumn, ContainerGrid } from '../../elements/Containers';
@@ -26,6 +27,7 @@ const Gallery = () => {
     }, [empty, species])
 
     return (<Container style={{ paddingTop: '5rem' }}>
+        <MetaTags title={'Especies de nuestro territorio | Fuera de Contexto'}/>
         <ContainerColumn style={{ alignItems: 'start' }}>
             <H2>Especies de nuestro territorio</H2>
 
