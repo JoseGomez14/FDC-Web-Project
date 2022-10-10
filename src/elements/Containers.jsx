@@ -61,7 +61,7 @@ const ContainerGrid = styled.div`
     width: 100%;
     display: grid;
     grid-gap: ${(props) => props.gallery? '1.5rem': '1rem'};
-    grid-template-columns: ${(props) => props.gallery? 'repeat(auto-fill, minmax(min(100%, 22rem), 1fr))':
+    grid-template-columns: ${(props) => props.gallery? 'repeat(auto-fill, minmax(min(100%, 16rem), 1fr))':
         'repeat(auto-fill, minmax(min(100%, 10rem), 1fr))'};
     grid-auto-flow: dense;
 `
@@ -107,7 +107,8 @@ const shine = keyframes`
 const GridItemGallery = styled.div`
     width: 100%;
     height: 100%;
-    aspect-ratio: 3/2;
+    aspect-ratio: 3/4;
+    transition: all 0.4s ease-in-out;
 
     figure{
         cursor: pointer;
@@ -153,22 +154,27 @@ const ContainerFloat = styled.div`
 const ContainerSlider = styled.div`
   .swiper {   
     width: min(900px, 100%);
-    height: 100%;
+    height: 500px;
     border-radius: 0.8rem;
     margin-bottom: 1.5rem;
-  }
-  
-  .swiper-slide {
-    height: auto;
-    max-height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
 
-    img{
-     width: 100%;
-     height: auto;
-     border-radius: 0.8rem;
+.swiper-slide {
+      width: 100%;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+
+    div{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+
+      img{
+        object-fit: cover;
+        border-radius: 0.8rem;
+     }
     }
   }
 `
