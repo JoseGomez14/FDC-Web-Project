@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import { GridItemGallery, ContainerFloat } from '../../elements/Containers';
 import IconClass from '../../elements/IconClass';
@@ -12,7 +13,8 @@ import Specie from '../about/Specie';
  * @returns retorna el resumen de una especie en específico y la forma de ver más información de la misma
  */
 const ItemGallery = ({ specie }) => {
-    const [popUpState, setPopUpState] = useState(false)
+    const [popUpState, setPopUpState] = useState(false);
+
     return (
         <GridItemGallery>
             <figure onClick={() => setPopUpState(true)}>
@@ -38,20 +40,35 @@ const ItemGallery = ({ specie }) => {
 }
 
 const Article = styled.article`
-    padding: 0 1rem;
-    cursor: pointer;
+    padding: 0.5rem 1rem;
     color: ${theme.veryLightGray};
     text-shadow: 0px 0px 3px ${theme.mostlyBlack};
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border-bottom-left-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
     position: relative;
-    bottom: 3.5rem;
+    bottom: 3.8rem;
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
+    
+    aside{
+        width: 80%;
+        white-space: nowrap;
+    }
+
     h1{
+        text-overflow: ellipsis;
+        overflow: hidden;
         font-size: 1.25rem;
         font-weight: 500;
         line-height: 1.5rem;
     }
+
     p{
+        text-overflow: ellipsis;
+        overflow: hidden;
         font-size: 0.9rem;
     }
 `
