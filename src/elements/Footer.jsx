@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Container, ContainerRow } from './Containers';
+import { Container, ContainerColumn, ContainerRow } from './Containers';
 import IconFDC from '../assets/images/IconFDC';
 import ListItem, { List } from './Lists';
 
@@ -9,49 +9,38 @@ import ListItem, { List } from './Lists';
  * @returns Retorna el Footer de la página
  */
 const Footer = () => {
-    return (
-        <footer>
-            <hr style={{margin: '0 10%'}}/>
-            <Container small>
-                <ContainerRow columnSmall>
-                    <AsideLeft>
-                        <IconFDC fill='#a4e473' />
-                    </AsideLeft><br /><br />
-                    <AsideRight>
-                        <List onlyTitle>
-                            <ListItem
-                                title='Acerca de nosotros'
-                                href={'/#about-us'}
-                            />
-                            <ListItem
-                                title='Producciones'
-                                href={'/#productions'}
-                            />
-                            <ListItem
-                                title='Objetivos'
-                                href={'/#objectives'}
-                            />
-                        </List>
-                    </AsideRight>
-                    <AsideRight>
-                        <List onlyTitle>
-                            <ListItem
-                                title='Historia - Logros'
-                                href={'/#history'}
-                            />
-                            <ListItem
-                                title='¡Contáctanos!'
-                                href={'/#contact'}
-                            />
-                            <ListItem
-                                title='Aliados'
-                                href={'/#allies'}
-                            />
-                        </List>
-                    </AsideRight>
-                </ContainerRow>
-            </Container>
-        </footer>
+    return (<footer>
+        <Container small>
+            <ContainerRow columnSmall>
+                <AsideLeft>
+                    <IconFDC fill='#a4e473' />
+                    <ContainerColumn>
+                        <br />
+                        <p>Santo Domingo - Antioquia</p>
+                        <p>Colombia</p>
+                    </ContainerColumn>
+                </AsideLeft><br /><br />
+                <AsideRight>
+                    <List onlyTitle>
+                        <ListItem title='Acerca de nosotros' href={'/#about-us'} />
+
+                        <ListItem title='Producciones' href={'/#productions'} />
+
+                        <ListItem title='Objetivos' href={'/#objectives'} />
+                    </List>
+                </AsideRight>
+                <AsideRight>
+                    <List onlyTitle>
+                        <ListItem title='Historia - Logros' href={'/#history'} />
+
+                        <ListItem title='¡Contáctanos!' href={'/#contact'} />
+
+                        <ListItem title='Aliados' href={'/#allies'} />
+                    </List>
+                </AsideRight>
+            </ContainerRow>
+        </Container>
+    </footer>
     );
 }
 
@@ -66,11 +55,11 @@ const AsideLeft = styled.aside`
     &::before{
         background-color: #00272D;
         content: "";
-        height: 240%;
+        height: 200%;
         width: 3px;
         position: absolute;
         right: 5%;
-        top: -80%;
+        top: -60%;
     }
 
     @media (max-width: 900px) {
