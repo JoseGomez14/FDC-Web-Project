@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useEffect } from 'react';
 import styled from 'styled-components';
 import { GridItemGallery, ContainerFloat } from '../../elements/Containers';
 import IconClass from '../../elements/IconClass';
