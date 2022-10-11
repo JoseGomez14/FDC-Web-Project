@@ -24,6 +24,7 @@ const Gallery = () => {
         if (species.length > 0 || empty) {
             setLoadState(false)
         }
+        window.scrollTo({top: 0})
     }, [empty, species])
 
     return (<Container style={{ paddingTop: '5rem' }}>
@@ -61,7 +62,7 @@ const Gallery = () => {
                 <article>
                     <h2>¡Vaya! No hay especies registradas por el momento.</h2>
                     <p>Pero puedes conocer más acerca de <em>Fuera de Contexto</em>
-                        <NavLink to={'/'}>!aquí¡</NavLink>
+                        <NavLink to={'/'}> ¡aquí!</NavLink>
                     </p>
                 </article>
             }
