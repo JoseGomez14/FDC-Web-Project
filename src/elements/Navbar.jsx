@@ -39,8 +39,8 @@ const Navbar = () => {
                                 <FWIcon icon={faUsers} /> Nosotros</a>
                             </li>
 
-                            <li><a href='/#productions' onClick={handleClick}>
-                                <FWIcon icon={faImages} /> Producciones</a>
+                            <li><NavLink to='/gallery' onClick={handleClick}>
+                                <FWIcon icon={faImages} /> Producciones</NavLink>
                             </li>
 
                             <li><a href='/#objectives' onClick={handleClick}>

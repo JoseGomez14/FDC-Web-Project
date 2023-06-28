@@ -24,11 +24,11 @@ const Gallery = () => {
         if (species.length > 0 || empty) {
             setLoadState(false)
         }
-        window.scrollTo({top: 0})
+        window.scrollTo({ top: 0 })
     }, [empty, species])
 
     return (<Container style={{ paddingTop: '5rem' }}>
-        <MetaTags title={'Especies de nuestro territorio | Fuera de Contexto'}/>
+        <MetaTags title={'Especies de nuestro territorio | Fuera de Contexto'} url="https://fueradecontexto.co/gallery" />
         <ContainerColumn style={{ alignItems: 'start' }}>
             <H2>Especies de nuestro territorio</H2>
 

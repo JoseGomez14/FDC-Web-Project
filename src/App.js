@@ -4,6 +4,7 @@ import Objetives from './components/main/Objectives';
 import Productions from './components/main/Productions';
 import History from './components/main/History';
 import Home from './components/main/Home';
+import MetaTags from './components/main/MetaTags';
 
 /**
  * Componente encargado de mostrar la información de página principal
@@ -14,6 +15,12 @@ import Home from './components/main/Home';
 function App() {
   return (
     <main className="App">
+      <MetaTags
+        title="Fuera de Contexto 💚 | Grupo de investigación"
+        description="Somos un grupo de investigación <em>ONDAS</em> que estudia la fauna del municipio de Santo Domingo (Antioquia). Adscritos a la Institución Educativa Técnico Industrial Tomás Carrasquilla (IETITC). ¡Conoce más de FDC!"
+        url="https://fueradecontexto.co/"
+      />
+
       <Home id='home'/>
       
       <AboutUs id='about-us'/>

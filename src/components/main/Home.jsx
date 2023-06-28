@@ -42,7 +42,7 @@ const Home = ({ id }) => {
                     let sliderHeight = document.getElementById(id).clientHeight;
                     window.scrollTo({ top: sliderHeight - 48 })
                 }}>
-                    <img src={iconDown} alt="" />
+                    <img src={iconDown} alt="Explorar" />
                 </GoDownButton>
             </aside>
         </ContainerColumn>

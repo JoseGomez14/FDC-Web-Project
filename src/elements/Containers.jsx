@@ -106,7 +106,7 @@ const shine = keyframes`
 */
 const GridItemGallery = styled.div`
     width: 100%;
-    height: 100%;
+    height: fit-content;
     aspect-ratio: 3/4;
     overflow: hidden;
     border-radius: 0.8rem;
@@ -121,7 +121,7 @@ const GridItemGallery = styled.div`
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: 50% 50%;
+            object-position: ${(props) => props.position? props.position: "50% 50%"};
             background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
             background-size: 200% 100%;
             animation: 1.5s ${shine} linear infinite;

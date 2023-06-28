@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import { ContactButton, Button } from '../../elements/Buttons';
 import { Container, ContainerColumn, ContainerRow } from '../../elements/Containers';
@@ -16,6 +16,12 @@ import { ContactForm, ContactInput, ContactTextArea } from '../../elements/Conta
  * @returns sección de contenido redes sociales y formulario de contacto
  */
 const Contacts = ({ id }) => {
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+    }
+
+    const [emailInfo, setEmailInfo] = useState({})
+
     return (<Container dark id={id}>
         <ContainerColumn>
             <aside>
@@ -47,10 +53,10 @@ const Contacts = ({ id }) => {
 
                     <aside>
                         <Paragraph light>!Escríbenos un correo!</Paragraph>
-                        <ContactForm>
-                            <ContactInput type="text" placeholder='Correo electrónico' />
-                            <ContactTextArea name="" id="" cols="30" rows="10" placeholder='Mensaje'></ContactTextArea>
-                            <Button type="submit" small><p>Enviar</p></Button>
+                        <ContactForm onSubmit={handleSubmit}>
+                            <ContactInput type="text" placeholder='Asunto' value={emailInfo.subjet} onChange={(evt) => setEmailInfo({ ...emailInfo, subjet: evt.target.value })} />
+                            <ContactTextArea name="" id="" cols="30" rows="10" placeholder='Mensaje' value={emailInfo.body} onChange={(evt) => setEmailInfo({ ...emailInfo, body: evt.target.value })}></ContactTextArea>
+                            <Button small as={A} href={`mailto:fueradecontextopyt@gmail.com?subject=${emailInfo.subjet}&body=${emailInfo.body}`} target="_blank"><p>Enviar</p></Button>
                         </ContactForm>
                     </aside>
                 </ContainerRow>
@@ -89,6 +95,11 @@ const AsideLeft = styled.aside`
     @media (max-width: 900px) {
         align-items: center;
     }
+`
+
+const A = styled.a`
+    text-align: center;
+    text-decoration: none;
 `
 
 export default Contacts;

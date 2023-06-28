@@ -25,7 +25,7 @@ const About = () => {
         {docState === 'exists' &&
             <>
                 <Specie specie={specie} id={id} />
-                <MetaTags title={specie.commonName + " | Fuera de Contexto"} description={specie.description} />
+                <MetaTags title={specie.commonName + " | Fuera de Contexto"} description={specie.description} image={specie.images[0]}/>
             </>
         }
     </main>

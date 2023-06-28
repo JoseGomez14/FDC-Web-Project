@@ -20,12 +20,19 @@ const History = ({ id }) => {
                 <TimeLine>
                     <div >
                         <H3 cyan>2019</H3>
-                        <Paragraph>Describe brevemente un logró que obtuvo el grupo FDC en este período.</Paragraph>
+                        <Paragraph>- Semana del emprendimiento institucional.</Paragraph>
+                        <Paragraph>- Sembratón.</Paragraph>
+                        <Paragraph>- Laboratorio Socioambiental - Alejandria.</Paragraph>
+                        <Paragraph>- Encuentro municipal - Alejandria.</Paragraph>
+                        <Paragraph>- Encuentro departamental ONDAS.</Paragraph>
                     </div>
                     <div></div>
                     <div>
                         <H3 cyan>2020</H3>
-                        <Paragraph>Describe brevemente un logró que obtuvo el grupo FDC en este período.</Paragraph>
+                        <Paragraph>- Foro ambiental - Santo Domingo.</Paragraph>
+                        <Paragraph>- Divulgación de resultados a estudiantes.</Paragraph>
+                        <Paragraph>- Encuentro departamental ONDAS</Paragraph>
+                        <Paragraph>- Avistamiento con biólogos de Cornare.</Paragraph>
                     </div>
                     <div></div>
                     <div className='point'></div>
@@ -35,14 +42,32 @@ const History = ({ id }) => {
                     <div></div>
                     <div>
                         <H3 cyan>2021</H3>
-                        <Paragraph>Describe brevemente un logró que obtuvo el grupo FDC en este período.</Paragraph>
+                        <Paragraph>- Socializaciones académicas.</Paragraph>
+                        <Paragraph>- Nuevas alianzas.</Paragraph>
+                        <Paragraph>- Curso fotografíco.</Paragraph>
+                        <Paragraph>- Concurso cuento y dibujo.</Paragraph>
+                        <Paragraph>- Encuentro departamental ONDAS.</Paragraph>
+                        <Paragraph>- Encuentro regional ONDAS - Manizales.</Paragraph>
+                        <Paragraph>- Encuentro nacional ONDAS - Barranquilla.</Paragraph>
                     </div>
                     <div></div>
                     <div>
-                        <H3 cyan>Presente</H3>
-                        <Paragraph>Describe brevemente un logró que obtuvo el grupo FDC en este período.</Paragraph>
+                        <H3 cyan>2022</H3>
+                        <Paragraph>- Publicación a nivel departamental (Escrituras Desde el Aula).</Paragraph>
+                        <Paragraph>- Participación en Expociencia Ibagué.</Paragraph>
+                        <Paragraph>- Participación en SAVIACIUDADANOS Rionegro.</Paragraph>
+                        <Paragraph>- Laboratorio Socioambiental - Santo Domingo.</Paragraph>
+                        <Paragraph>- Foro ambiental - Santo Domingo.</Paragraph>
+                        <Paragraph>- Jornada de siembre - San Javier.</Paragraph>
+                        <Paragraph>- Publicación en la revista ingenio UPB.</Paragraph>
+                        <Paragraph>- Encuentro de divulgación intermunicipal ONDAS Medellín.</Paragraph>
+                        <Paragraph>- Diseño cartilla Fuera de Contexto.</Paragraph>
+                        <Paragraph>- Feria internacional Chile.</Paragraph>
                     </div>
                 </TimeLine>
+            </aside>
+            <aside>
+                <a href="https://firebasestorage.googleapis.com/v0/b/fdc-web-project.appspot.com/o/images%2FLi%CC%81nea%20de%20tiempo%20FDC.png?alt=media&token=d04533ee-ad39-48da-85b5-81dc7ff1a1d4" download>Descarga la línea de tiempo completa.</a>
             </aside>
         </ContainerColumn>
     </Container>);

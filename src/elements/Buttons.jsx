@@ -8,8 +8,8 @@ const ContactButton = styled.a`
     background-color: ${theme.mostlyBlack};
     border-radius: 2rem;
     height: 3rem;
-    width: 50%;
-    min-width: 20rem;
+    width: ${(props) => props.small ? 'fit-content': '50%'};
+    min-width: ${(props) => props.small ? '0': '20rem'};
     padding: 0.5rem;
     margin-bottom: 1.275rem;
     text-decoration: none;

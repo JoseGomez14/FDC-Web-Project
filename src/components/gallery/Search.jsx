@@ -18,7 +18,6 @@ import { faFilter, faSearch } from '@fortawesome/free-solid-svg-icons';
  */
 const Search = ({ setSearchState, setFilterSpecies, species }) => {
    const classes = ["Aves", "Mamíferos", "Reptiles", "Anfibios", "Insectos", "Plantas", "Hongos"];
-   const colors = ["Rojo", "Azul", "Verde", "Amarillo", "Rosa", "Anaranjado", "Morado", "Café", "Gris", "Blanco", "Negro"];
    const habitats = ["Pradera", "Bosque", "Desierto", "Montaña", "Marisma", "Sabana", "Altiplano", "Quebrada", "Lago", "Pantano", "Río", "Playa"];
 
    const [advanced, setAdvanced] = useState(false);
@@ -74,11 +73,9 @@ const Search = ({ setSearchState, setFilterSpecies, species }) => {
    } else {
       return (
          <SearchForm onSubmit={handleSubmit} column>
-            <Fieldset title="Clasificación" type='clasification' items={["Fauna", "Flora"]} />
+            <Fieldset title="Reino" type='kingdom' items={["Animalia", "Plantae", "Fungi"]} />
 
             <Fieldset title="Clase" type='class' items={classes} />
-
-            <Fieldset title="Color del pelaje" type='color' items={colors} />
 
             <Fieldset title="Hábitat" type='habitat' items={habitats} />
 

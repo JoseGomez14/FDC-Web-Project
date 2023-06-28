@@ -50,7 +50,7 @@ const advancedSearch = (species, evt) =>{
                     species.forEach(specie => {
                         let nameInput =  childNode.childNodes[0].name
                         switch (node.id) {
-                            case 'fs-clasification':
+                            case 'fs-kingdom':
                                 if(specie.kingdom === nameInput) arrSpecies.push(specie)
                                 break;
                             case 'fs-class':

@@ -15,10 +15,9 @@ const ItemGallery = ({ specie }) => {
     const [popUpState, setPopUpState] = useState(false);
 
     return (
-        <GridItemGallery>
+        <GridItemGallery position={specie.imgPosition}>
             <figure onClick={() => setPopUpState(true)}>
-                <img src={specie.images[0]} alt={specie.commonName} width='400px' loading='lazy'></img>
-                <figcaption hidden>{specie.description}</figcaption>
+                <img src={specie.images[0]} alt={specie.commonName}loading='lazy'></img>
 
                 <Article onClick={() => setPopUpState(true)} className='specieInfo'>
                     <aside>
@@ -47,9 +46,11 @@ const Article = styled.article`
     border-bottom-left-radius: 0.8rem;
     border-bottom-right-radius: 0.8rem;
     position: relative;
-    bottom: 3.8rem;
+    bottom: 5rem;
+    height: 5rem;
     cursor: pointer;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     
     aside{

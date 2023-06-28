@@ -26,7 +26,7 @@ const Productions = ({id}) => {
                 
                 <Paragraph light>Al tener en cuenta que en algunos registros fotográficos no se pueden obtener algunos detalles de la naturaleza o que no se pueden plasmar ciertos procesos, en el grupo de investigación recurrimos a la ilustración científica mediante los integrantes del proyecto, para luego involucrar a otras personas como artistas y niños y adolescentes estudiantes.</Paragraph>
                 <br/>
-                <LearnMore as={NavLink} to='/gallery' light='true'>!Conoce más💚¡</LearnMore>
+                <LearnMore as={NavLink} to='/gallery' light='true'>¡Conoce más💚!</LearnMore>
             </Aside>
         </ContainerRow>
     </Container> );
